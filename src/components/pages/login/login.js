@@ -1,24 +1,22 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Form, Title, StyledLink } from "./style";
+import { Form, Title, StyledLink } from "../signup/style";
 import { ThreeDots } from "react-loader-spinner";
 import axios from "axios";
 
-export default function Signup() {
-  const [email, setEmail] = useState("");
+export default function Login() {
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [icon, setIcon] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   function createUser(event) {
     event.preventDefault();
 
-    const data = { email, password, username, icon };
-    const promise = axios.post("http://localhost:5000/signup", data);
+    const data = { login, password };
+    const promise = axios.post("http://localhost:5000/login", data);
     promise.then((response) => {
-      navigate("/login");
+      navigate("/");
       console.log("deu certo");
     });
     promise.catch((error) => {
@@ -33,27 +31,10 @@ export default function Signup() {
         <input
           type="text"
           name="username"
-          value={username}
+          value={login}
           disabled={loading}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="username"
-          required
-        ></input>
-        <input
-          type="text"
-          name="icon"
-          disabled={loading}
-          value={icon}
-          onChange={(e) => setIcon(e.target.value)}
-          placeholder="avatar"
-        ></input>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          disabled={loading}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="email"
+          onChange={(e) => setLogin(e.target.value)}
+          placeholder="username or email"
           required
         ></input>
         <input
@@ -66,12 +47,12 @@ export default function Signup() {
           required
         ></input>
         <button type="submit" disabled={loading}>
-          {loading ? <ThreeDots color="#fff" /> : "Signup"}
+          {loading ? <ThreeDots color="#fff" /> : "Login"}
         </button>
         <StyledLink>
-          Already have an account?{" "}
-          <Link to="/login">
-            <span>Sign In</span>{" "}
+          Don't have an account?{" "}
+          <Link to="/signup">
+            <span>Sign Up</span>{" "}
           </Link>
         </StyledLink>
       </Form>

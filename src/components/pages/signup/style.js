@@ -56,4 +56,4 @@ const StyledLink = styled.h1`
   }
 `;
 
-export { Form, Title, StyledLink };
+export { Title, StyledLink, Form };
