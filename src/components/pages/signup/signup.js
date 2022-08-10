@@ -14,6 +14,7 @@ export default function Signup() {
 
   function createUser(event) {
     event.preventDefault();
+    setLoading(true);
 
     const data = { email, password, username, icon };
     const promise = axios.post("http://localhost:5000/signup", data);
@@ -23,6 +24,7 @@ export default function Signup() {
     });
     promise.catch((error) => {
       alert("Confira os dados e tente novamente");
+      setLoading(false);
     });
   }
 
@@ -66,7 +68,7 @@ export default function Signup() {
           required
         ></input>
         <button type="submit" disabled={loading}>
-          {loading ? <ThreeDots color="#fff" /> : "Signup"}
+          {loading ? <div className="loading"><ThreeDots color="#fff" /> </div> : "Signup"}
         </button>
         <StyledLink>
           Already have an account?{" "}

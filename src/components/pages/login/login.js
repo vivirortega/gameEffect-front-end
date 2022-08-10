@@ -1,26 +1,32 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate} from "react-router-dom";
+import { useState, useContext } from "react";
 import { Form, Title, StyledLink } from "../signup/style";
 import { ThreeDots } from "react-loader-spinner";
 import axios from "axios";
+import UserContext from "../../../contexts/usercontext";
 
 export default function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const { setToken } = useContext(UserContext);
   const navigate = useNavigate();
 
   function createUser(event) {
     event.preventDefault();
+    setLoading(true);
 
     const data = { login, password };
     const promise = axios.post("http://localhost:5000/login", data);
     promise.then((response) => {
-      navigate("/");
-      console.log("deu certo");
+      navigate("/game/2");
+      setToken(response.data.token)
+      console.log(response.data.token);
+      
     });
     promise.catch((error) => {
       alert("Confira os dados e tente novamente");
+      setLoading(false);
     });
   }
 
@@ -47,7 +53,7 @@ export default function Login() {
           required
         ></input>
         <button type="submit" disabled={loading}>
-          {loading ? <ThreeDots color="#fff" /> : "Login"}
+          {loading ? <div className="loading"><ThreeDots color="#fff" /> </div>: "Login"}
         </button>
         <StyledLink>
           Don't have an account?{" "}

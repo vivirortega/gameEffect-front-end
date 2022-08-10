@@ -34,6 +34,13 @@ const Form = styled.form`
     font-size: 30px;
     font-weight: bold;
   }
+
+  .loading {
+    display: flex;
+    //align-items: center;
+    justify-content: center;
+    
+  }
 `;
 
 const Title = styled.h1`
