@@ -1,6 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import icontest from "../../../assets/icon.png";
 import { Div } from "./style";
+import Footer from "../../footer/footer";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <FaSearch className="react-icon"/>
         <img src={icontest}></img>
       </Div>
+      <Footer />
     </>
   );
 }

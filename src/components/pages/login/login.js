@@ -9,7 +9,7 @@ export default function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { setToken } = useContext(UserContext);
+  const { setToken, setImage } = useContext(UserContext);
   const navigate = useNavigate();
 
   function createUser(event) {
@@ -20,8 +20,11 @@ export default function Login() {
     const promise = axios.post("http://localhost:5000/login", data);
     promise.then((response) => {
       navigate("/game/2");
-      setToken(response.data.token)
+      setToken(response.data.token);
+      setImage(response.data.image);
       console.log(response.data.token);
+      setLogin("");
+      setPassword("");
       
     });
     promise.catch((error) => {

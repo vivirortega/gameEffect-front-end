@@ -6,6 +6,7 @@ import Login from "./pages/login/login";
 import Home from ".//pages/home/home";
 import User from "./pages/user";
 import Game from "./pages/game/game";
+import CreateGame from "./pages/createGame/createGame";
 
 export default function App() {
   const [token, setToken] = useState("");
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/game" element={<CreateGame />}></Route>
         <Route path="/game/:id" element={<Game />}></Route>
         <Route path="/user/:id" element={<User />}></Route>
       </Routes>

@@ -21,7 +21,12 @@ export default function Signup() {
     promise.then((response) => {
       navigate("/login");
       console.log("deu certo");
+      setEmail("");
+      setPassword("");
+      setIcon("");
+      setUsername("");
     });
+
     promise.catch((error) => {
       alert("Confira os dados e tente novamente");
       setLoading(false);
@@ -68,7 +73,13 @@ export default function Signup() {
           required
         ></input>
         <button type="submit" disabled={loading}>
-          {loading ? <div className="loading"><ThreeDots color="#fff" /> </div> : "Signup"}
+          {loading ? (
+            <div className="loading">
+              <ThreeDots color="#fff" />{" "}
+            </div>
+          ) : (
+            "Signup"
+          )}
         </button>
         <StyledLink>
           Already have an account?{" "}
