@@ -6,10 +6,11 @@ import axios from "axios";
 import icontest from "../../../assets/icon.png";
 import poster from "../../../assets/poster.png";
 import UserContext from "../../../contexts/usercontext";
+import { ThreeDots } from "react-loader-spinner";
 
 export default function Game() {
   const [game, setGame] = useState([]);
-  const [newGame, setNewGame] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { id } = useParams();
   const { token } = useContext(UserContext);
   const config = {
@@ -19,7 +20,6 @@ export default function Game() {
   };
 
   useEffect(() => {
-    console.log(config);
     renderGame();
   }, []);
 
@@ -27,7 +27,6 @@ export default function Game() {
     const promise = axios.get(`http://localhost:5000/game/${id}`, config);
     promise.then((response) => {
       setGame(response.data);
-      setNewGame(response.data);
       console.log("deu certo");
     });
     promise.catch((error) => {
@@ -35,33 +34,38 @@ export default function Game() {
     });
   }
 
-  return (
-    <>
-      <Background>
-        <div className="header">
-          <Link to="/">
-          <HiChevronLeft className="return" />
-          </Link>
-          <div>
-            <HiBookmark className="save" />
-            <img src={icontest}></img>
+  if (game.length === 0) {
+    return <h1>Loading</h1>;
+  } else {
+    return (
+      <>
+        <Background>
+          <div className="header">
+            <Link to="/">
+              <HiChevronLeft className="return" />
+            </Link>
+            <div>
+              <HiBookmark className="save" />
+              <img src={icontest}></img>
+            </div>
           </div>
-        </div>
-        <PosterDiv>
-        <img src={poster} className="poster"></img>
-        </PosterDiv>
-        <Blue>
-          <h1>Final Fantasy 7 Remake</h1>
-          <h2>JRPG</h2>
-          <h3>Release Date 04/10</h3>
-          <h4>
-            The story takes place in the dystopian metropolis of Midgar and
-            follows mercenary Cloud Strife, who joins an eco-terrorist group in
-            an attempt to stop a powerful Shinra megacorporation from using the
-            planet's vital essence as a source of energy.
-          </h4>
-        </Blue>
-      </Background>
-    </>
-  );
+          {game.map((games) => {
+            return (
+              <>
+                <PosterDiv>
+                  <img src={games.pictureUrl} className="poster"></img>
+                </PosterDiv>
+                <Blue>
+                  <h1>{games.name}</h1>
+                  <h2>{games.genre}</h2>
+                  <h3>{games.releaseDate}</h3>
+                  <h4>{games.description}</h4>
+                </Blue>
+              </>
+            );
+          })}
+        </Background>
+      </>
+    );
+  }
 }

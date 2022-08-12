@@ -9,7 +9,7 @@ import Game from "./pages/game/game";
 import CreateGame from "./pages/createGame/createGame";
 
 export default function App() {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token"));
   const [image, setImage] = useState("");
   return (
     <UserContext.Provider value={{token, setToken, image, setImage}}>

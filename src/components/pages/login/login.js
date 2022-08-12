@@ -1,4 +1,4 @@
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { Form, Title, StyledLink } from "../signup/style";
 import { ThreeDots } from "react-loader-spinner";
@@ -19,16 +19,17 @@ export default function Login() {
     const data = { login, password };
     const promise = axios.post("http://localhost:5000/login", data);
     promise.then((response) => {
-      navigate("/game/2");
       setToken(response.data.token);
-      setImage(response.data.image);
-      console.log(response.data.token);
+      setImage(response.data.image.icon);
+      localStorage.setItem("token", response.data.token);
+      navigate("/game/2");
       setLogin("");
       setPassword("");
-      
     });
     promise.catch((error) => {
       alert("Confira os dados e tente novamente");
+    });
+    promise.finally(() => {
       setLoading(false);
     });
   }
@@ -56,7 +57,13 @@ export default function Login() {
           required
         ></input>
         <button type="submit" disabled={loading}>
-          {loading ? <div className="loading"><ThreeDots color="#fff" /> </div>: "Login"}
+          {loading ? (
+            <div className="loading">
+              <ThreeDots color="#fff" />{" "}
+            </div>
+          ) : (
+            "Login"
+          )}
         </button>
         <StyledLink>
           Don't have an account?{" "}
