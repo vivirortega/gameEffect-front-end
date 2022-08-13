@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Background = styled.footer`
-  margin-top: 650px;
   display: flex;
   align-items: center;
   justify-content: center;

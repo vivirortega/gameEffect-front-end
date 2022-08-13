@@ -68,7 +68,7 @@ const Blue = styled.div`
 
   h2,
   h3 {
-    margin-top:10px;
+    margin-top: 10px;
     font-size: 18px;
     font-weight: bold;
   }
@@ -81,8 +81,66 @@ const Blue = styled.div`
     font-family: "Oswald";
     line-height: 26.68px;
     margin-right: 20px;
-    margin-left:20px;
+    margin-left: 20px;
+  }
+
+  .button {
+    margin-top: 20px;
+    width: 30px;
+    height: 30px;
+    color: black;
   }
 `;
 
-export { Background, Blue, PosterDiv };
+const Ratings = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+
+  h5 {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    font-family: "Oswald";
+  }
+
+  h6 {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Oswald";
+  }
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 340px;
+  height: 230px;
+  background-color: #121212;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+
+  input {
+    margin-top: 10px;
+    width: 300px;
+    height: 60px;
+    border: none;
+    border-radius: 100px;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 20px;
+  }
+  span {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: white;
+  }
+
+`
+
+export { Background, Blue, PosterDiv, Ratings, Form };

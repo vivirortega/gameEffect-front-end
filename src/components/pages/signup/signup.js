@@ -9,6 +9,7 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [icon, setIcon] = useState("");
+  const [bio, setBio] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -16,7 +17,7 @@ export default function Signup() {
     event.preventDefault();
     setLoading(true);
 
-    const data = { email, password, username, icon };
+    const data = { email, password, username, icon, bio };
     const promise = axios.post("http://localhost:5000/signup", data);
     promise.then((response) => {
       navigate("/login");
@@ -25,6 +26,7 @@ export default function Signup() {
       setPassword("");
       setIcon("");
       setUsername("");
+      setBio("");
     });
 
     promise.catch((error) => {
@@ -71,6 +73,14 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="password"
           required
+        ></input>
+        <input
+          type="text"
+          name="bio"
+          value={bio}
+          disabled={loading}
+          onChange={(e) => setBio(e.target.value)}
+          placeholder="bio"
         ></input>
         <button type="submit" disabled={loading}>
           {loading ? (

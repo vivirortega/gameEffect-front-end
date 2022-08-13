@@ -3,6 +3,8 @@ import { useState, useContext } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import axios from "axios";
 import UserContext from "../../../contexts/usercontext";
+import Header from "../../header/header";
+import Footer from "../../footer/footer";
 
 export default function CreateGame() {
   const [name, setName] = useState("");
@@ -41,6 +43,7 @@ export default function CreateGame() {
 
   return (
     <>
+    <Header/>
     <Background>
       <Form onSubmit={createGame}>
         <Title>Insert data and create a game in our database!</Title>
@@ -94,6 +97,7 @@ export default function CreateGame() {
         </button>
       </Form>
     </Background>
+    <Footer/>
     </>
   );
 }

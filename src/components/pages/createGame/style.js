@@ -4,9 +4,10 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 20px;
-  height: 100vh;
+  justify-content: flex-start;
+  margin-top: 50px;
+  margin-bottom: 70px;
 
   input {
     width: 300px;

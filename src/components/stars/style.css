@@ -1,0 +1,17 @@
+input[type="radio"]{
+    display: none;
+}
+
+.star {
+    cursor: pointer;
+    transition: color 200ms;
+}
+
+label {
+    display: hidden;
+}
+
+.div {
+    display: flex;
+    justify-content: center;
+}

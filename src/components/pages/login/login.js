@@ -9,7 +9,7 @@ export default function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { setToken, setImage } = useContext(UserContext);
+  const { setToken, setImage, setUsername } = useContext(UserContext);
   const navigate = useNavigate();
 
   function createUser(event) {
@@ -21,8 +21,10 @@ export default function Login() {
     promise.then((response) => {
       setToken(response.data.token);
       setImage(response.data.image.icon);
+      setUsername(response.data.username.username);
+      console.log(response.data.username.username);
       localStorage.setItem("token", response.data.token);
-      navigate("/game/2");
+      navigate("/game/12");
       setLogin("");
       setPassword("");
     });
