@@ -8,30 +8,37 @@ const Background = styled.div`
   background-color: #9aa9d8;
   border: none;
   border-radius: 10px;
-  word-wrap: break-word; 
+  word-wrap: break-word;
   //white-space: pre-line;
-  overflow:hidden;
+  overflow: hidden;
   overflow-y: scroll;
 
   .user-info {
     margin-top: 5px;
-    margin-left: 5px;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    margin-left: 10px;
   }
 
   img {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 100px;
   }
 
   h2 {
     margin-top: 10px;
-    margin-left: 5px;
     white-space: pre-line;
+    margin-left: 10px;
+  }
+
+  .user {
+    font-weight: 400;
+    font-family: "Oswald";
+    font-size: 20px;
   }
 `;
 
@@ -72,4 +79,26 @@ const Gap = styled.div`
   flex-direction: column;
 `;
 
-export { Background, AvaliationsPage, Header, Gap };
+const Review = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+  margin-right: 10px;
+
+  .star {
+    color: #f2f536;
+    width: 20px;
+    height: 20px;
+  
+  }
+
+  .review {
+    font-size: 20px;
+  }
+`;
+
+
+
+export { Background, AvaliationsPage, Header, Gap, Review };

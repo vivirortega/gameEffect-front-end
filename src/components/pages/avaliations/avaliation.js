@@ -3,8 +3,9 @@ import axios from "axios";
 import Footer from "../../footer/footer";
 import UserContext from "../../../contexts/usercontext";
 import { useParams, Link } from "react-router-dom";
-import { Background, AvaliationsPage, Header, Gap } from "./style";
+import { Background, AvaliationsPage, Header, Gap, Review } from "./style";
 import { HiChevronLeft } from "react-icons/hi";
+import { FaStar } from "react-icons/fa";
 
 export default function Avaliations() {
   const [avaliations, setAvaliations] = useState([]);
@@ -44,17 +45,22 @@ export default function Avaliations() {
       </Header>
       <h1>All Reviews</h1>
       <Gap>
-      {avaliations.map((avaliation) => {
-        return (
-          <Background>
-            <div className="user-info">
-              <img src={image} />
-              <span>{username}</span>
-            </div>
-            <h2>{avaliation.review}</h2>
-          </Background>
-        );
-      })}
+        {avaliations.map((avaliation) => {
+          return (
+            <Background>
+              <div className="user-info">
+                <img src={image} />
+                <span className="user">{username}</span>
+                <Review>
+                  <span className="review">{avaliation.rate}</span>
+                  <FaStar className="star" />
+                </Review>
+              </div>
+
+              <h2>{avaliation.review}</h2>
+            </Background>
+          );
+        })}
       </Gap>
       <Footer />
     </AvaliationsPage>
