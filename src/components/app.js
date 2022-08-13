@@ -13,10 +13,11 @@ export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [image, setImage] = useState("");
   const [username, setUsername] = useState("");
+  const [bio, setBio] = useState("");
   
   return (
     <UserContext.Provider
-      value={{ token, setToken, image, setImage, username, setUsername }}
+      value={{ token, setToken, image, setImage, username, setUsername, bio, setBio }}
     >
       <BrowserRouter>
         <Routes>

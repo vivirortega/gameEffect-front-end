@@ -9,7 +9,7 @@ export default function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { setToken, setImage, setUsername } = useContext(UserContext);
+  const { setToken, setImage, setUsername, setBio } = useContext(UserContext);
   const navigate = useNavigate();
 
   function createUser(event) {
@@ -22,7 +22,7 @@ export default function Login() {
       setToken(response.data.token);
       setImage(response.data.image.icon);
       setUsername(response.data.username.username);
-      console.log(response.data.username.username);
+      setBio(response.data.username.bio);
       localStorage.setItem("token", response.data.token);
       navigate("/game/12");
       setLogin("");

@@ -4,7 +4,7 @@ const Div = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
+  gap: 5px;
   margin-top: 30px;
 
   input {
