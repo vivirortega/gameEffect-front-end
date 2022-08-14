@@ -14,10 +14,11 @@ export default function App() {
   const [image, setImage] = useState("");
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
+  const [userId, setUserId] = useState("");
   
   return (
     <UserContext.Provider
-      value={{ token, setToken, image, setImage, username, setUsername, bio, setBio }}
+      value={{ token, setToken, image, setImage, username, setUsername, bio, setBio, userId, setUserId }}
     >
       <BrowserRouter>
         <Routes>

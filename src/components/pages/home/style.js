@@ -2,31 +2,60 @@ import styled from "styled-components";
 
 const Div = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 20px;
-  margin-top: 30px;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 5px;
 
-  input {
-    border: none;
-    width: 200px;
-    height: 40px;
-    border-radius: 100px;
-    text-align: center;
-  }
-
-  img {
-    width: 55px;
-    height: 55px;
-    border-radius: 100%;
-    margin-right: 30px;
-  }
-
-  .react-icon {
+  h1 {
+    margin-top: 70px;
+    margin-bottom: 60px;
+    font-size: 24px;
+    font-weight: bold;
     color: white;
-    width: 40px;
-    height: 28px;
+    margin-left: 10px;
   }
 `;
 
-export { Div };
+const Background = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aquamarine;
+  width: 198.23px;
+  height: 224.62px;
+  border-radius: 20px;
+  position: relative;
+
+  img {
+    width: 160px;
+    height: 200px;
+    border-radius: 10px;
+    bottom: 0;
+  }
+
+  h2 {
+    font-size: 14px;
+    color: white;
+    font-family: "Poppins";
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: black;
+  }
+`;
+const Cards = styled.div`
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+`;
+
+export { Div, Background, Cards };

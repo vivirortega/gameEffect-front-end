@@ -3,7 +3,6 @@ import { HiChevronLeft, HiBookmark } from "react-icons/hi";
 import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import icontest from "../../../assets/icon.png";
 import UserContext from "../../../contexts/usercontext";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 import { ThreeDots } from "react-loader-spinner";
@@ -14,7 +13,7 @@ export default function Game() {
   const [newReview, setNewReview] = useState(false);
   const [review, setReview] = ("");
   const { id } = useParams();
-  const { token } = useContext(UserContext);
+  const { token, image, userId } = useContext(UserContext);
   const navigate = useNavigate();
   const config = {
     headers: {
@@ -55,7 +54,9 @@ export default function Game() {
           </Link>
           <div>
             <HiBookmark className="save" />
-            <img src={icontest}></img>
+            <Link to={`/user/${userId}`}>
+            <img src={image}></img>
+            </Link>
           </div>
         </div>
         <>
