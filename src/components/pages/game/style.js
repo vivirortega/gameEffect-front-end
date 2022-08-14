@@ -1,3 +1,4 @@
+import { BsDisplay } from "react-icons/bs";
 import styled from "styled-components";
 
 const Background = styled.div`
@@ -59,11 +60,11 @@ const Blue = styled.div`
   border-top-left-radius: 70px;
 
   h1 {
-    margin-top: 65px;
     font-size: 24px;
     font-weight: bold;
     color: white;
     text-shadow: 0px 4px 4px rgba(24, 2, 2, 0.25);
+    margin-top: 40px;
   }
 
   h2,
@@ -74,18 +75,18 @@ const Blue = styled.div`
   }
 
   h4 {
-    text-align: center;
-    margin-top: 18px;
+    text-align: justify;
     font-size: 18px;
     font-weight: bold;
     font-family: "Oswald";
     line-height: 26.68px;
     margin-right: 20px;
     margin-left: 20px;
+    margin-top: 5px;
   }
 
   .button {
-    margin-top: 20px;
+    margin-top: 5px;
     width: 30px;
     height: 30px;
     color: black;
@@ -110,6 +111,28 @@ const Ratings = styled.div`
     font-size: 14px;
     font-weight: bold;
     font-family: "Oswald";
+    color: #c4c4c4;
+    height: 100%;
+    margin-top: 7px;
+  }
+`;
+
+const Rate = styled.div`
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  gap: 5px;
+
+  span {
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  .star {
+    color: #f2f536;
+    width: 40px;
+    height: 33px;
   }
 `;
 
@@ -137,10 +160,62 @@ const Form = styled.form`
   span {
     margin-top: 10px;
     margin-bottom: 5px;
-    font-size: 18px;
+    font-size: 23px;
     color: white;
+    font-weight: bold;
   }
 
-`
+  button {
+    margin-top: 15px;
+    width: 130px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+  }
+`;
 
-export { Background, Blue, PosterDiv, Ratings, Form };
+const Stars = styled.div`
+  display: flex;
+  margin-top: 10px;
+  gap: 5px;
+  margin-left: 35px;
+`;
+
+const Icons = styled.div`
+  display: flex;
+  width: 100%;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+
+  .cancel {
+    height: 30px;
+    width: 70px;
+    font-size: 15px;
+    background-color: bisque;
+  }
+`;
+
+export {
+  Background,
+  Blue,
+  PosterDiv,
+  Ratings,
+  Form,
+  Rate,
+  Stars,
+  Icons,
+  Buttons,
+};

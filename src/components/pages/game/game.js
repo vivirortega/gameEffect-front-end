@@ -1,4 +1,4 @@
-import { Background, Blue, PosterDiv, Ratings, Form } from "./style";
+import { Background, Blue, PosterDiv, Ratings, Form, Rate, Stars, Icons, Buttons } from "./style";
 import { HiChevronLeft, HiBookmark } from "react-icons/hi";
 import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
@@ -7,35 +7,44 @@ import UserContext from "../../../contexts/usercontext";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 import { ThreeDots } from "react-loader-spinner";
 import Star from "../../stars/star";
+import Heart from "../../heart/heart";
+import { FaStar } from "react-icons/fa";
 
 export default function Game() {
+  const { token, image, userId, avaliation, setAvaliation } = useContext(UserContext);
   const [game, setGame] = useState({});
   const [newReview, setNewReview] = useState(false);
-  const [review, setReview] = ("");
+  const [review, setReview] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [rate, setRate] = useState([]);
   const { id } = useParams();
-  const { token, image, userId } = useContext(UserContext);
   const navigate = useNavigate();
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
+  console.log(avaliation);
 
   useEffect(() => {
-    renderGame();
-  }, []);
-
-  function renderGame() {
     const promise = axios.get(`http://localhost:5000/game/${id}`, config);
     promise.then((response) => {
       setGame(response.data);
-      console.log(response.data);
-      console.log("deu certo");
     });
     promise.catch((error) => {
       console.log(error);
     });
-  }
+  }, []);
+
+  useEffect(() => {
+    const promise = axios.get(`http://localhost:5000/game/${id}/rate`, config);
+    promise.then((response) => {
+      setRate(response.data);
+    });
+    promise.catch((error) => {
+      console.log(error);
+    });
+  }, []);
 
   function toAvaliations() {
     navigate(`/game/${id}/avaliations`);
@@ -44,6 +53,31 @@ export default function Game() {
   function toAvaliationPost() {
     setNewReview(true);
   }
+
+  function insertAvaliation(event) {
+    const newAvaliation = {review: review, rate: avaliation}
+    event.preventDefault();
+    setLoading(true);
+
+    const promise = axios.post(`http://localhost:5000/game/${id}/avaliation`, newAvaliation, config);
+    promise.then((response) => {
+      console.log("deu certo")
+    
+      //localStorage.setItem("token", response.data.token);
+
+    });
+    promise.catch((error) => {
+      alert("Confira os dados e tente novamente");
+      console.log(error);
+      console.log(avaliation);
+    });
+    promise.finally(() => {
+      setLoading(false);
+      setNewReview(false);
+    });
+
+  }
+
 
   return Object.keys(game).length > 0 ? (
     <>
@@ -55,7 +89,7 @@ export default function Game() {
           <div>
             <HiBookmark className="save" />
             <Link to={`/user/${userId}`}>
-            <img src={image}></img>
+              <img src={image}></img>
             </Link>
           </div>
         </div>
@@ -69,24 +103,42 @@ export default function Game() {
             <h3>{game.releaseDate}</h3>
             <h4>{game.description}</h4>
             <Ratings>
+              <Rate>
               <h5>Ratings and Reviews</h5>
+              <Stars>
+              {rate.map((rates) => {
+                return <span>{rates.rate}</span>;
+              })}
+              <FaStar className="star"/>
+              </Stars>
+              </Rate>
               <h6 onClick={toAvaliations}>See All</h6>
             </Ratings>
             <BsFillPlusSquareFill
               className="button"
               onClick={toAvaliationPost}
             />
-            {newReview === true ? 
-            <Form>
-            <span>Rate</span>
-           <Star/>
-           <input
-              required
-              value={review}
-              placeholder="review"
-              onChange={(e) => setReview(e.target.value)}
-            ></input>
-            </Form> : <></>}
+            {newReview === true ? (
+              <Form onSubmit={insertAvaliation}>
+                <span>Rate</span>
+                <Icons>
+                <Star onChange={(e) => setAvaliation(e.target.value)}/>
+                <Heart />
+                </Icons>
+                <input
+                  required
+                  value={review}
+                  placeholder="review"
+                  onChange={(e) => setReview(e.target.value)}
+                ></input>
+                <Buttons>
+                <button type="submit">Review</button>
+                <button className="cancel">Cancel</button>
+                </Buttons>
+              </Form>
+            ) : (
+              <></>
+            )}
           </Blue>
         </>
       </Background>

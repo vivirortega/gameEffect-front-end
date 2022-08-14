@@ -1,10 +1,13 @@
-import { useState } from "react";
 import { FaStar } from "react-icons/fa";
+import UserContext from "../../contexts/usercontext";
+import { useState, useContext } from "react";
 import "./style.css";
 
 export default function StarRating() {
+  const { setAvaliation } = useContext(UserContext);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+  setAvaliation(rating);
   return (
     <div className="div">
       {[...Array(5)].map((star, i) => {
