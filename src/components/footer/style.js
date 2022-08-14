@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Background = styled.footer`
+  z-index: 1;
   bottom: 0;
   position: fixed;
   margin-bottom: 30px;

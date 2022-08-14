@@ -6,6 +6,7 @@ const Div = styled.div`
   justify-content: flex-end;
   gap: 5px;
   margin-top: 30px;
+  z-index: 1;
 
   input {
     border: none;

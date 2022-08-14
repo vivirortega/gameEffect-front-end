@@ -10,7 +10,7 @@ import { FaStar } from "react-icons/fa";
 export default function Avaliations() {
   const [avaliations, setAvaliations] = useState([]);
   const { id } = useParams();
-  const { token, image, username } = useContext(UserContext);
+  const { token, image, username, userId } = useContext(UserContext);
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ export default function Avaliations() {
   return (
     <AvaliationsPage>
       <Header>
-        <Link to="/">
+        <Link to={`/game/${id}`}>
           <HiChevronLeft className="return" />
         </Link>
       </Header>
@@ -49,8 +49,8 @@ export default function Avaliations() {
           return (
             <Background>
               <div className="user-info">
-                <img src={image} />
-                <span className="user">{username}</span>
+                <img src={avaliation.icon} alt="icon"/>
+                <span className="user">{avaliation.username}</span>
                 <Review>
                   <span className="review">{avaliation.rate}</span>
                   <FaStar className="star" />

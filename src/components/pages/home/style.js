@@ -20,11 +20,12 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: aquamarine;
+  background-color: #ab69ac;
   width: 198.23px;
   height: 224.62px;
   border-radius: 20px;
   position: relative;
+  text-decoration: none;
 
   img {
     width: 160px;
