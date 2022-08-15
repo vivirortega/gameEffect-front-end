@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const [game, setGame] = useState([]);
-  const { token } = useContext(UserContext);
+  const { token, userId } = useContext(UserContext);
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -16,10 +16,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    renderRecentGame();
-  }, []);
-
-  function renderRecentGame() {
     const promise = axios.get(`http://localhost:5000/`, config);
     promise.then((response) => {
       setGame(response.data);
@@ -29,7 +25,7 @@ export default function Home() {
     promise.catch((error) => {
       console.log(error);
     });
-  }
+  }, []);
 
   return (
     <>
@@ -38,17 +34,18 @@ export default function Home() {
         <h1>Recently added</h1>
         <Cards>
           {game.map((games, i) => {
-            while(i < 5) {
-            return (
-              <Link to={`/game/${games.id}`}>
-              <Background>
-                <img src={games.pictureUrl} />
-                <h2>{games.name}</h2>
-                <h3>{games.releaseDate}</h3>
-              </Background>
-              </Link>
-            );
-          }})}
+            while (i < 5) {
+              return (
+                <Link to={`/game/${games.id}`}>
+                  <Background>
+                    <img src={games.pictureUrl} />
+                    <h2>{games.name}</h2>
+                    <h3>{games.releaseDate}</h3>
+                  </Background>
+                </Link>
+              );
+            }
+          })}
         </Cards>
       </Div>
       <Footer />

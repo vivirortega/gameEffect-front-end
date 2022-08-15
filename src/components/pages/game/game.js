@@ -1,4 +1,14 @@
-import { Background, Blue, PosterDiv, Ratings, Form, Rate, Stars, Icons, Buttons } from "./style";
+import {
+  Background,
+  Blue,
+  PosterDiv,
+  Ratings,
+  Form,
+  Rate,
+  Stars,
+  Icons,
+  Buttons,
+} from "./style";
 import { HiChevronLeft, HiBookmark } from "react-icons/hi";
 import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
@@ -11,7 +21,8 @@ import Heart from "../../heart/heart";
 import { FaStar } from "react-icons/fa";
 
 export default function Game() {
-  const { token, image, userId, avaliation, setAvaliation } = useContext(UserContext);
+  const { token, image, userId, avaliation, setAvaliation, heartit, setHeartit } =
+    useContext(UserContext);
   const [game, setGame] = useState({});
   const [newReview, setNewReview] = useState(false);
   const [review, setReview] = useState("");
@@ -19,6 +30,7 @@ export default function Game() {
   const [rate, setRate] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
+  console.log(heartit)
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -55,29 +67,31 @@ export default function Game() {
   }
 
   function insertAvaliation(event) {
-    const newAvaliation = {review: review, rate: avaliation}
+    const newAvaliation = { review: review, rate: avaliation, isFavorite: heartit };
     event.preventDefault();
     setLoading(true);
 
-    const promise = axios.post(`http://localhost:5000/game/${id}/avaliation`, newAvaliation, config);
+    const promise = axios.post(
+      `http://localhost:5000/game/${id}/avaliation`,
+      newAvaliation,
+      config
+    );
     promise.then((response) => {
-      console.log("deu certo")
-    
-      //localStorage.setItem("token", response.data.token);
+      console.log("deu certo");
 
+      //localStorage.setItem("token", response.data.token);
     });
     promise.catch((error) => {
       alert("Confira os dados e tente novamente");
       console.log(error);
       console.log(avaliation);
+      setReview("");
     });
     promise.finally(() => {
       setLoading(false);
       setNewReview(false);
     });
-
   }
-
 
   return Object.keys(game).length > 0 ? (
     <>
@@ -104,13 +118,13 @@ export default function Game() {
             <h4>{game.description}</h4>
             <Ratings>
               <Rate>
-              <h5>Ratings and Reviews</h5>
-              <Stars>
-              {rate.map((rates) => {
-                return <span>{rates.rate}</span>;
-              })}
-              <FaStar className="star"/>
-              </Stars>
+                <h5>Ratings and Reviews</h5>
+                <Stars>
+                  {rate.map((rates) => {
+                    return <span>{rates.rate}</span>;
+                  })}
+                  <FaStar className="star" />
+                </Stars>
               </Rate>
               <h6 onClick={toAvaliations}>See All</h6>
             </Ratings>
@@ -122,8 +136,8 @@ export default function Game() {
               <Form onSubmit={insertAvaliation}>
                 <span>Rate</span>
                 <Icons>
-                <Star onChange={(e) => setAvaliation(e.target.value)}/>
-                <Heart />
+                  <Star onChange={(e) => setAvaliation(e.target.value)} />
+                  <Heart value={heartit}/>
                 </Icons>
                 <input
                   required
@@ -132,8 +146,21 @@ export default function Game() {
                   onChange={(e) => setReview(e.target.value)}
                 ></input>
                 <Buttons>
-                <button type="submit">Review</button>
-                <button className="cancel">Cancel</button>
+                  <button type="submit" disabled={loading}>
+                    {loading ? (
+                      <div className="loading">
+                        <ThreeDots color="#fff" />{" "}
+                      </div>
+                    ) : (
+                      "Review"
+                    )}
+                  </button>
+                  <button
+                    className="cancel"
+                    onClick={() => setNewReview(false)}
+                  >
+                    Cancel
+                  </button>
                 </Buttons>
               </Form>
             ) : (

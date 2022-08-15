@@ -1,16 +1,18 @@
 import Footer from "../../footer/footer";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import UserContext from "../../../contexts/usercontext";
-import { UserPage, Edit, Form } from "./style";
+import { UserPage, Edit, Form, Favorites } from "./style";
 import { ThreeDots } from "react-loader-spinner";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function User() {
-  const { image, username, bio, token } = useContext(UserContext);
+  const { image, username, token, bio, userId } = useContext(UserContext);
   const [edit, setEdit] = useState(false);
+  const [favorite, setIsFavorite] = useState([]);
   const [newBio, setNewBio] = useState("");
   const [newImage, setNewImage] = useState("");
+  //const [bio, setBio] = useState("");
   const [loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
   const { id } = useParams();
@@ -20,17 +22,36 @@ export default function User() {
     },
   };
 
+  useEffect(() => {
+    const promise = axios.get(`http://localhost:5000/game/${id}`, config);
+    promise.then((response) => {
+      //setBio(response.data);
+      console.log("Resposta", response.data);
+    });
+    promise.catch((error) => {
+      console.log(error);
+    });
+  }, []);
+
+  useEffect(() => {
+    const promise = axios.get(`http://localhost:5000/${userId}`, config);
+    promise.then((response) => {
+      setIsFavorite(response.data);
+      console.log(favorite);
+      console.log("deu certo");
+    });
+    promise.catch((error) => {
+      console.log(error);
+    });
+  }, []);
+
   function editUser(event) {
     event.preventDefault();
     setLoading(true);
-    console.log("cliquei")
+    console.log("cliquei");
 
-    const data = { newBio, newImage };
-    const promise = axios.put(
-      `http://localhost:5000/user/${id}`,
-      data,
-      config
-    );
+    const data = { bio: newBio, icon: newImage };
+    const promise = axios.put(`http://localhost:5000/user/${id}`, data, config);
     promise.then((response) => {
       console.log("deu certo");
       setLoading(false);
@@ -46,7 +67,7 @@ export default function User() {
     });
   }
 
-  function editing(){
+  function editing() {
     setEdit(true);
     setHide(true);
   }
@@ -56,7 +77,7 @@ export default function User() {
       <UserPage>
         <h1>{username}</h1>
         <img src={image} className="icon" />
-        <h2>{bio}</h2>
+        {edit === true ? <h2>{newBio}</h2> : <h2>{bio}</h2>}
         {edit === true ? (
           <Form onSubmit={editUser}>
             <input
@@ -88,7 +109,14 @@ export default function User() {
         )}
 
         {hide === true ? <></> : <Edit onClick={editing}>Edit</Edit>}
-        
+        <h3>Favorite Games</h3>
+        <Favorites>
+          {favorite.map((favorite, i) => {
+            while (i < 3) {
+              return <img src={favorite.picture} className="image" />;
+            }
+          })}
+        </Favorites>
       </UserPage>
       <Footer />
     </>

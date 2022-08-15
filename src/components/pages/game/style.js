@@ -65,6 +65,7 @@ const Blue = styled.div`
     color: white;
     text-shadow: 0px 4px 4px rgba(24, 2, 2, 0.25);
     margin-top: 40px;
+    text-align: center;
   }
 
   h2,

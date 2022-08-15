@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { BsFillHeartFill } from "react-icons/bs";
 import "./style.css";
+import UserContext from "../../contexts/usercontext";
 
 export default function Heart() {
-  //const [heart, setHeart] = useState(localStorage.getItem("heart"));
-  const [heart, setHeart] = useState(false);
-  console.log(heart);
+  const { setHeartit } = useContext(UserContext);
+  const [heart, setHeart] = useState(localStorage.getItem("heart", false));
+  setHeartit(heart);
 
   function toggleHeart() {
     setHeart(true);

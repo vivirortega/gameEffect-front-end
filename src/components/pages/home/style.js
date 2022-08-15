@@ -8,11 +8,11 @@ const Div = styled.div`
 
   h1 {
     margin-top: 70px;
-    margin-bottom: 60px;
     font-size: 24px;
     font-weight: bold;
     color: white;
     margin-left: 10px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -22,7 +22,7 @@ const Background = styled.div`
   align-items: center;
   background-color: #ab69ac;
   width: 198.23px;
-  height: 224.62px;
+  height: 100%;
   border-radius: 20px;
   position: relative;
   text-decoration: none;
@@ -35,18 +35,22 @@ const Background = styled.div`
   }
 
   h2 {
+    margin-top: 5px;
+    padding-bottom: 5px;
     font-size: 14px;
     color: white;
     font-family: "Poppins";
     margin-bottom: 5px;
     font-weight: bold;
+    text-align: center;
   }
 
   h3 {
-    font-size: 10px;
     margin-bottom: 5px;
     font-weight: bold;
     color: black;
+    text-align: center;
+    font-size: 13px;
   }
 `;
 const Cards = styled.div`

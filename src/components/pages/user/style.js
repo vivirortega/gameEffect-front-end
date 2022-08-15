@@ -24,7 +24,22 @@ const UserPage = styled.div`
   h2 {
     font-size: 14px;
     font-family: "Poppins";
-    color: #c4c4c4;
+    color: white;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-family: "Poppins";
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    margin-left: 40px;
+  }
+
+  .image {
+    width: 101px;
+    height: 143px;
+    border-radius: 10px;
   }
 
 `;
@@ -77,4 +92,9 @@ const Form = styled.form`
 
 `;
 
-export { UserPage, Edit, Form };
+
+const Favorites = styled.div`
+  display: flex;
+  gap: 10px;
+`
+export { UserPage, Edit, Form, Favorites };

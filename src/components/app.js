@@ -16,6 +16,7 @@ export default function App() {
   const [bio, setBio] = useState("");
   const [userId, setUserId] = useState("");
   const [avaliation, setAvaliation] = useState("");
+  const [heartit, setHeartit] = useState("");
 
   return (
     <UserContext.Provider
@@ -32,6 +33,8 @@ export default function App() {
         setUserId,
         avaliation,
         setAvaliation,
+        heartit,
+        setHeartit,
       }}
     >
       <BrowserRouter>
