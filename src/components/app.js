@@ -17,6 +17,7 @@ export default function App() {
   const [userId, setUserId] = useState("");
   const [avaliation, setAvaliation] = useState("");
   const [heartit, setHeartit] = useState("");
+  const [gameId, setGameId] = useState("");
 
   return (
     <UserContext.Provider
@@ -35,6 +36,7 @@ export default function App() {
         setAvaliation,
         heartit,
         setHeartit,
+        gameId, setGameId
       }}
     >
       <BrowserRouter>

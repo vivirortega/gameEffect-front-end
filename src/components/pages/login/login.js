@@ -25,7 +25,7 @@ export default function Login() {
       setBio(response.data.userinfo.bio);
       setUserId(response.data.userinfo.id);
       localStorage.setItem("token", response.data.token);
-      navigate("/game/13");
+      navigate("/");
       setLogin("");
       setPassword("");
     });

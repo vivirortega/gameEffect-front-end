@@ -1,15 +1,18 @@
 import Footer from "../../footer/footer";
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../../../contexts/usercontext";
-import { UserPage, Edit, Form, Favorites } from "./style";
+import { UserPage, Edit, Form, Favorites, RecentActivities } from "./style";
 import { ThreeDots } from "react-loader-spinner";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 import axios from "axios";
 
 export default function User() {
-  const { image, username, token, bio, userId } = useContext(UserContext);
+  const { image, username, token, bio, userId, gameId } =
+    useContext(UserContext);
   const [edit, setEdit] = useState(false);
   const [favorite, setIsFavorite] = useState([]);
+  const [recent, setRecent] = useState([]);
   const [newBio, setNewBio] = useState("");
   const [newImage, setNewImage] = useState("");
   //const [bio, setBio] = useState("");
@@ -24,10 +27,7 @@ export default function User() {
 
   useEffect(() => {
     const promise = axios.get(`http://localhost:5000/game/${id}`, config);
-    promise.then((response) => {
-      //setBio(response.data);
-      console.log("Resposta", response.data);
-    });
+    promise.then((response) => {});
     promise.catch((error) => {
       console.log(error);
     });
@@ -37,8 +37,6 @@ export default function User() {
     const promise = axios.get(`http://localhost:5000/${userId}`, config);
     promise.then((response) => {
       setIsFavorite(response.data);
-      console.log(favorite);
-      console.log("deu certo");
     });
     promise.catch((error) => {
       console.log(error);
@@ -48,17 +46,13 @@ export default function User() {
   function editUser(event) {
     event.preventDefault();
     setLoading(true);
-    console.log("cliquei");
 
     const data = { bio: newBio, icon: newImage };
     const promise = axios.put(`http://localhost:5000/user/${id}`, data, config);
     promise.then((response) => {
-      console.log("deu certo");
       setLoading(false);
       setHide(false);
       setEdit(false);
-      console.log(response);
-      console.log(newBio, newImage);
     });
     promise.catch((error) => {
       alert("Confira os dados e tente novamente");
@@ -66,6 +60,17 @@ export default function User() {
       setLoading(false);
     });
   }
+
+  useEffect(() => {
+    const promise = axios.get(`http://localhost:5000/${userId}/recent`, config);
+    promise.then((response) => {
+      setRecent(response.data);
+      console.log(favorite);
+    });
+    promise.catch((error) => {
+      console.log(error);
+    });
+  }, []);
 
   function editing() {
     setEdit(true);
@@ -117,6 +122,25 @@ export default function User() {
             }
           })}
         </Favorites>
+        <h4 className="recent">Recent Activity</h4>
+        <RecentActivities className="recent">
+          {recent.map((recents, i) => {
+            while (i < 5) {
+              return (
+                <div className="all">
+                 <div className="star-recent">
+                    <FaStar className="star" />
+                    <h4>{recents.rate}</h4>
+                  </div>
+                <div className="card">
+                  <img src={recents.pictureUrl} className="recent-image" />
+                  <h5>{recents.name}</h5>
+                </div>
+                </div>
+              );
+            }
+          })}
+        </RecentActivities>
       </UserPage>
       <Footer />
     </>

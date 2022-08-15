@@ -20,7 +20,6 @@ export default function Home() {
     promise.then((response) => {
       setGame(response.data);
       console.log(response.data);
-      console.log("deu certo");
     });
     promise.catch((error) => {
       console.log(error);
@@ -34,9 +33,9 @@ export default function Home() {
         <h1>Recently added</h1>
         <Cards>
           {game.map((games, i) => {
-            while (i < 5) {
+            while (i < 10) {
               return (
-                <Link to={`/game/${games.id}`}>
+                <Link className="link" to={`/game/${games.id}`}>
                   <Background>
                     <img src={games.pictureUrl} />
                     <h2>{games.name}</h2>

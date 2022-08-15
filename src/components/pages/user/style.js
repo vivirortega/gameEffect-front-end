@@ -6,6 +6,8 @@ const UserPage = styled.div`
   align-items: center;
   margin-top: calc(30px + 15px);
   gap: 15px;
+  overflow-x: hidden;
+  overflow-y: hidden;
 
   .icon {
     width: 104px;
@@ -27,13 +29,42 @@ const UserPage = styled.div`
     color: white;
   }
 
+  .recent {
+    margin-left: 30px;
+    font-size: 24px;
+    font-family: "Poppins";
+    font-weight: bold;
+    color: white;
+    width: 100%;
+  }
+
   h3 {
     font-size: 24px;
     font-family: "Poppins";
     font-weight: bold;
     color: white;
     width: 100%;
-    margin-left: 40px;
+    margin-left: 30px;
+  }
+
+  h4 {
+    font-family: "Poppins";
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    font-size: 20px;
+  }
+
+  h5 {
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    margin-top: 5px;
+    overflow: hidden;
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow-y: scroll;
   }
 
   .image {
@@ -41,7 +72,6 @@ const UserPage = styled.div`
     height: 143px;
     border-radius: 10px;
   }
-
 `;
 
 const Edit = styled.button`
@@ -55,7 +85,6 @@ const Edit = styled.button`
   font-family: "Poppins";
   text-align: center;
   justify-content: center;
-
 `;
 
 const Form = styled.form`
@@ -89,12 +118,57 @@ const Form = styled.form`
     font-weight: bold;
     color: white;
   }
-
 `;
-
 
 const Favorites = styled.div`
   display: flex;
   gap: 10px;
-`
-export { UserPage, Edit, Form, Favorites };
+`;
+
+const RecentActivities = styled.div`
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 100%;
+  padding-right: 30px;
+
+  .all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recent-image {
+    width: 109px;
+    height: 109px;
+    border-radius: 10px;
+  }
+
+  .card {
+    background-color: #ab69ac;
+    justify-content: center;
+    width: 130px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    word-wrap: break-word;
+  }
+
+  .star-recent {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+
+  .star {
+    width: 30px;
+    height: 25px;
+    color: #f2f536;
+  }
+`;
+
+export { UserPage, Edit, Form, Favorites, RecentActivities };

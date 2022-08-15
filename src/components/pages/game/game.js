@@ -21,7 +21,7 @@ import Heart from "../../heart/heart";
 import { FaStar } from "react-icons/fa";
 
 export default function Game() {
-  const { token, image, userId, avaliation, setAvaliation, heartit, setHeartit } =
+  const { token, image, userId, avaliation, setAvaliation, heartit, setGameId } =
     useContext(UserContext);
   const [game, setGame] = useState({});
   const [newReview, setNewReview] = useState(false);
@@ -30,13 +30,12 @@ export default function Game() {
   const [rate, setRate] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
-  console.log(heartit)
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  console.log(avaliation);
+  setGameId(game.id);
 
   useEffect(() => {
     const promise = axios.get(`http://localhost:5000/game/${id}`, config);
@@ -108,7 +107,7 @@ export default function Game() {
           </div>
         </div>
         <>
-          <PosterDiv>
+          <PosterDiv key={game.id}>
             <img src={game.pictureUrl} className="poster"></img>
           </PosterDiv>
           <Blue>

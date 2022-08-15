@@ -53,8 +53,8 @@ const Blue = styled.div`
   background: rgb(217, 246, 249);
   background: linear-gradient(
     0deg,
-    rgba(217, 246, 249, 1) 8%,
-    rgba(82, 169, 172, 1) 72%
+    rgba(217, 246, 249, 1) 10%,
+    rgba(82, 169, 172, 1) 46%
   );
   border-top-right-radius: 70px;
   border-top-left-radius: 70px;
