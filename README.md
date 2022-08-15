@@ -3,7 +3,7 @@
   </div>
   
 <div align="center">
-  <p> <a href="link/">deploy: gameEffect - vercel</a></p>
+  <p> <a href="https://game-effect-front-end.vercel.app/login">deploy: gameEffect - vercel</a></p>
   </div> 
 
 
