@@ -14,8 +14,6 @@ export default function User() {
   const [favorite, setIsFavorite] = useState([]);
   const [recent, setRecent] = useState([]);
   const [newBio, setNewBio] = useState("");
-  const [jrpg, setJrpg] = useState("");
-  const [action, setAction] = useState("");
   const [newImage, setNewImage] = useState("");
   const [loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
@@ -64,17 +62,6 @@ export default function User() {
 
   useEffect(() => {
     const promise = axios.get(`http://localhost:5000/${userId}/recent`, config);
-    promise.then((response) => {
-      setRecent(response.data);
-    });
-    promise.catch((error) => {
-      console.log(error);
-    });
-  }, []);
-
-
-  useEffect(() => {
-    const promise = axios.get(`http://localhost:5000/jrpg`, config);
     promise.then((response) => {
       setRecent(response.data);
     });
@@ -136,17 +123,17 @@ export default function User() {
         <h4 className="recent">Recent Activity</h4>
         <RecentActivities className="recent">
           {recent.map((recents, i) => {
-            while (i < 5) {
+            while (i < 10) {
               return (
                 <div className="all">
-                 <div className="star-recent">
+                  <div className="star-recent">
                     <FaStar className="star" />
                     <h4>{recents.rate}</h4>
                   </div>
-                <div className="card">
-                  <img src={recents.pictureUrl} className="recent-image" />
-                  <h5>{recents.name}</h5>
-                </div>
+                  <div className="card">
+                    <img src={recents.pictureUrl} className="recent-image" />
+                    <h5>{recents.name}</h5>
+                  </div>
                 </div>
               );
             }

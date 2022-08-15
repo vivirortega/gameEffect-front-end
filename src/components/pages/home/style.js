@@ -9,12 +9,12 @@ const Div = styled.div`
   overflow-y: hidden;
 
   h1 {
-    margin-top: 70px;
     font-size: 40px;
     font-weight: bold;
     color: white;
     margin-bottom: 20px;
     margin-left: 20px;
+    margin-top: 40px;
     @media (min-width: 900px) {
       margin-left: calc(10px + 30px);
       margin-top: 50px;
@@ -59,7 +59,7 @@ const Background = styled.div`
   height: 270px;
   border-radius: 20px;
   text-decoration: none;
-  position: relative;
+  position: static;
 
   .link {
     text-decoration: none;
@@ -69,6 +69,9 @@ const Background = styled.div`
     margin-top: 10px;
     width: 160px;
     height: 200px;
+    position: relative;
+    z-index: 1;
+    overflow: auto;
   }
 
   h2 {

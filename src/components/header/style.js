@@ -39,4 +39,35 @@ const Div = styled.div`
   }
 `;
 
-export { Div };
+const Form = styled.form`
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  border-radius: 20px;
+  gap: 15px;
+  position: fixed;
+  top: 40px;
+  right: 130px;
+
+  input {
+    font-size: 16px;
+  }
+
+  .a {
+    text-decoration: none;
+  }
+
+  .response {
+    text-align: center;
+    font-size: 14px;
+    color: black;
+    margin-left: 16px;
+  }
+
+  .react-icon {
+    display: none;
+  }
+`;
+
+export { Div, Form };

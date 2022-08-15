@@ -17,7 +17,7 @@ export default function Login() {
     setLoading(true);
 
     const data = { login, password };
-    const promise = axios.post("http://localhost:5000/login", data);
+    const promise = axios.post("https://gameeffects.herokuapp.com/login", data);
     promise.then((response) => {
       setToken(response.data.token);
       setImage(response.data.userinfo.icon);

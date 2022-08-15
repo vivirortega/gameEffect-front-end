@@ -37,10 +37,9 @@ const UserPage = styled.div`
     color: white;
     width: 100%;
     @media (min-width: 900px) {
-      font-size: 30px;
+      font-size: 20px;
       margin-left: 50px;
       text-align: center;
-      margin-top: 10px
     }
   }
 
@@ -55,9 +54,7 @@ const UserPage = styled.div`
     @media (min-width: 900px) {
       font-size: 30px;
       text-align: center;
-      margin-top: 10px
     }
-    margin-left: 50px;
   }
 
   h4 {
@@ -73,20 +70,18 @@ const UserPage = styled.div`
 
   h5 {
     text-align: center;
-    font-size: 15px;
     color: white;
     font-weight: bold;
-    margin-top: 5px;
     overflow: hidden;
     white-space: pre-line;
     word-wrap: break-word;
-    overflow-y: scroll;
+    font-size: 13px;
   }
 
   .image {
-    width: 101px;
     height: 143px;
     border-radius: 10px;
+    width: 110px;
   }
 `;
 
@@ -115,11 +110,11 @@ const Form = styled.form`
   gap: 5px;
 
   input {
-    width: 100%;
     height: 40px;
     background-color: #9aa9d8;
     text-align: center;
     border: none;
+    width: 240px;
   }
 
   button {
@@ -143,11 +138,11 @@ const Favorites = styled.div`
 
 const RecentActivities = styled.div`
   display: flex;
-  gap: 10px;
   overflow-x: scroll;
   overflow-y: hidden;
   width: 100%;
   padding-right: 30px;
+  gap: 20px;
   @media (min-width: 900px) {
     display: flex;
     align-items: center;
@@ -161,26 +156,31 @@ const RecentActivities = styled.div`
   }
 
   .recent-image {
-    width: 109px;
-    height: 109px;
     border-radius: 10px;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    bottom: 10px;
   }
 
   .card {
-    background: rgb(238, 174, 202);
-    background: radial-gradient(
-      circle,
-      rgba(238, 174, 202, 1) 0%,
-      rgba(148, 187, 233, 1) 100%
+    background: rgb(99, 179, 182);
+    background: linear-gradient(
+      0deg,
+      rgba(99, 179, 182, 1) 16%,
+      rgba(99, 179, 182, 1) 48%,
+      rgba(113, 220, 215, 1) 90%
     );
-    justify-content: center;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     word-wrap: break-word;
-    height: 160px;
-    width: 160px;
+    height: 180px;
+    width: 170px;
+    position: static;
+    margin-top: 10px;
+    justify-content: flex-start;
   }
 
   .star-recent {

@@ -8,8 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const [game, setGame] = useState([]);
-  const [jrpg, setJrpg] = useState([]);
-  const [action, setAction] = useState([]);
+  const [jrpg, setJrpg] = useState([]);;
   const [recent, setRecent] = useState([]);
   const { token, userId } = useContext(UserContext);
   const config = {
@@ -38,16 +37,6 @@ export default function Home() {
     });
   }, []);
 
-  useEffect(() => {
-    const promise = axios.get(`http://localhost:5000/action`, config);
-    promise.then((response) => {
-      setAction(response.data);
-      console.log("ação deu certo");
-    });
-    promise.catch((error) => {
-      console.log(error);
-    });
-  }, []);
 
   useEffect(() => {
     const promise = axios.get(`http://localhost:5000/jrpg`, config);
@@ -85,7 +74,11 @@ export default function Home() {
         <Jrpgs>
           {jrpg.map((jrpgs, i) => {
             while (i < 10) {
-              return <img src={jrpgs.pictureUrl} />;
+              return (
+                <Link to={`/game/${jrpgs.id}`}>
+                  <img src={jrpgs.pictureUrl} />
+                </Link>
+              );
             }
           })}
         </Jrpgs>

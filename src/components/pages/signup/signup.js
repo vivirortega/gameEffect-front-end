@@ -18,7 +18,7 @@ export default function Signup() {
     setLoading(true);
 
     const data = { email, password, username, icon, bio };
-    const promise = axios.post("http://localhost:5000/signup", data);
+    const promise = axios.post("https://gameeffects.herokuapp.com/signup", data);
     promise.then((response) => {
       navigate("/login");
       console.log("deu certo");

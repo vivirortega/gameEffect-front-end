@@ -3,7 +3,6 @@ import styled from "styled-components";
 const Background = styled.div`
   display: flex;
   flex-direction: column;
-  width: 340px;
   height: 100px;
   background-color: #9aa9d8;
   border: none;
@@ -12,6 +11,7 @@ const Background = styled.div`
   //white-space: pre-line;
   overflow: hidden;
   overflow-y: scroll;
+  width: 330px;
   @media (min-width: 900px) {
     width: 450px;
     height: 130px;
@@ -65,7 +65,6 @@ const AvaliationsPage = styled.div`
   align-items: center;
 
   h1 {
-    margin-top: 30px;
     margin-bottom: 30px;
     font-size: 30px;
     color: white;
