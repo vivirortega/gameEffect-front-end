@@ -36,6 +36,12 @@ const UserPage = styled.div`
     font-weight: bold;
     color: white;
     width: 100%;
+    @media (min-width: 900px) {
+      font-size: 30px;
+      margin-left: 50px;
+      text-align: center;
+      margin-top: 10px
+    }
   }
 
   h3 {
@@ -45,6 +51,13 @@ const UserPage = styled.div`
     color: white;
     width: 100%;
     margin-left: 30px;
+
+    @media (min-width: 900px) {
+      font-size: 30px;
+      text-align: center;
+      margin-top: 10px
+    }
+    margin-left: 50px;
   }
 
   h4 {
@@ -53,6 +66,9 @@ const UserPage = styled.div`
     color: white;
     width: 100%;
     font-size: 20px;
+    @media (min-width: 900px) {
+      font-size: 30px;
+    }
   }
 
   h5 {
@@ -132,6 +148,11 @@ const RecentActivities = styled.div`
   overflow-y: hidden;
   width: 100%;
   padding-right: 30px;
+  @media (min-width: 900px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .all {
     display: flex;
@@ -146,15 +167,20 @@ const RecentActivities = styled.div`
   }
 
   .card {
-    background-color: #ab69ac;
+    background: rgb(238, 174, 202);
+    background: radial-gradient(
+      circle,
+      rgba(238, 174, 202, 1) 0%,
+      rgba(148, 187, 233, 1) 100%
+    );
     justify-content: center;
-    width: 130px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 200px;
     word-wrap: break-word;
+    height: 160px;
+    width: 160px;
   }
 
   .star-recent {

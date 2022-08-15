@@ -18,12 +18,20 @@ const Background = styled.div`
     width: 40px;
     height: 50px;
     margin-left: 30px;
+    @media (min-width: 900px) {
+      width: 60px;
+      height: 65px;
+    }
   }
   img {
     width: 55px;
     height: 55px;
     border-radius: 100%;
     margin-right: 30px;
+    @media (min-width: 900px) {
+      width: 70px;
+      height: 65px;
+    }
   }
 `;
 
@@ -39,6 +47,10 @@ const PosterDiv = styled.div`
     border-radius: 10%;
     margin-top: 70px;
     z-index: 1;
+    @media (min-width: 900px) {
+      width: 250px;
+      height: 330px;
+    }
   }
 `;
 
@@ -58,6 +70,10 @@ const Blue = styled.div`
   );
   border-top-right-radius: 70px;
   border-top-left-radius: 70px;
+  @media (min-width: 900px) {
+    width: 100%;
+    height: 100;
+  }
 
   h1 {
     font-size: 24px;
@@ -66,6 +82,10 @@ const Blue = styled.div`
     text-shadow: 0px 4px 4px rgba(24, 2, 2, 0.25);
     margin-top: 40px;
     text-align: center;
+    @media (min-width: 900px) {
+      font-size: 55px;
+      margin-top: calc(40px + 65px);
+    }
   }
 
   h2,
@@ -73,6 +93,15 @@ const Blue = styled.div`
     margin-top: 10px;
     font-size: 18px;
     font-weight: bold;
+    @media (min-width: 900px) {
+      font-size: 25px;
+    }
+  }
+
+  .date {
+    @media (min-width: 900px) {
+      font-size: 20px;
+    }
   }
 
   h4 {
@@ -84,6 +113,12 @@ const Blue = styled.div`
     margin-right: 20px;
     margin-left: 20px;
     margin-top: 5px;
+    @media (min-width: 900px) {
+      font-size: 29px;
+      margin-top: 20px;
+      margin-right: 80px;
+      margin-left: 80px;
+    }
   }
 
   .button {
@@ -91,6 +126,10 @@ const Blue = styled.div`
     width: 30px;
     height: 30px;
     color: black;
+    @media (min-width: 900px) {
+      width: 45px;
+      height: 50px;
+    }
   }
 `;
 
@@ -106,6 +145,11 @@ const Ratings = styled.div`
     color: black;
     font-weight: bold;
     font-family: "Oswald";
+
+    @media (min-width: 900px) {
+      font-size: 40px;
+      margin-top: 20px;
+    }
   }
 
   h6 {
@@ -115,6 +159,10 @@ const Ratings = styled.div`
     color: #c4c4c4;
     height: 100%;
     margin-top: 7px;
+    @media (min-width: 900px) {
+      font-size: 30px;
+      margin-top: 50px;
+    }
   }
 `;
 
@@ -128,12 +176,19 @@ const Rate = styled.div`
     font-size: 40px;
     font-weight: bold;
     margin-left: 10px;
+    @media (min-width: 900px) {
+      font-size: 60px;
+    }
   }
 
   .star {
     color: #f2f536;
     width: 40px;
     height: 33px;
+    @media (min-width: 900px) {
+      width: 50px;
+      height: 45px;
+    }
   }
 `;
 
@@ -147,6 +202,11 @@ const Form = styled.form`
   border: none;
   border-radius: 10px;
   margin-top: 10px;
+  @media (min-width: 900px) {
+    width: 480px;
+    height: 260px;
+    justify-content: center;
+  }
 
   input {
     margin-top: 10px;
@@ -157,6 +217,11 @@ const Form = styled.form`
     text-align: center;
     font-family: "Poppins";
     font-size: 20px;
+
+    @media (min-width: 900px) {
+      width: 340px;
+      height: 80px;
+    }
   }
   span {
     margin-top: 10px;
@@ -164,7 +229,12 @@ const Form = styled.form`
     font-size: 23px;
     color: white;
     font-weight: bold;
+
+    @media (min-width: 900px) {
+    font-size: 30px;
   }
+  }
+
 
   button {
     margin-top: 15px;
@@ -184,6 +254,11 @@ const Stars = styled.div`
   margin-top: 10px;
   gap: 5px;
   margin-left: 35px;
+  align-items: center;
+
+  @media (min-width: 900px) {
+    gap: 10px;
+  }
 `;
 
 const Icons = styled.div`

@@ -17,6 +17,12 @@ const Background = styled.footer`
     color: white;
     width: 28px;
     height: 28px;
+
+    @media (min-width: 900px) {
+    width: 40px;
+    height: 40px;
+
+  }
   }
 `;
 

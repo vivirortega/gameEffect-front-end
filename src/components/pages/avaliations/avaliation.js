@@ -28,8 +28,6 @@ export default function Avaliations() {
     );
     promise.then((response) => {
       setAvaliations(response.data);
-      console.log(response.data);
-      console.log("deu certo");
     });
     promise.catch((error) => {
       console.log(error);

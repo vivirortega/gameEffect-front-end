@@ -3,11 +3,14 @@ import Header from "../../header/header";
 import { useState, useEffect, useContext } from "react";
 import UserContext from "../../../contexts/usercontext";
 import axios from "axios";
-import { Div, Background, Cards } from "./style";
+import { Div, Background, Cards, Jrpgs } from "./style";
 import { Link } from "react-router-dom";
 
 export default function Home() {
   const [game, setGame] = useState([]);
+  const [jrpg, setJrpg] = useState([]);
+  const [action, setAction] = useState([]);
+  const [recent, setRecent] = useState([]);
   const { token, userId } = useContext(UserContext);
   const config = {
     headers: {
@@ -19,10 +22,42 @@ export default function Home() {
     const promise = axios.get(`http://localhost:5000/`, config);
     promise.then((response) => {
       setGame(response.data);
-      console.log(response.data);
     });
     promise.catch((error) => {
       console.log(error);
+    });
+  }, []);
+
+  useEffect(() => {
+    const promise = axios.get(`http://localhost:5000/${userId}/recent`, config);
+    promise.then((response) => {
+      setRecent(response.data);
+    });
+    promise.catch((error) => {
+      console.log(error);
+    });
+  }, []);
+
+  useEffect(() => {
+    const promise = axios.get(`http://localhost:5000/action`, config);
+    promise.then((response) => {
+      setAction(response.data);
+      console.log("ação deu certo");
+    });
+    promise.catch((error) => {
+      console.log(error);
+    });
+  }, []);
+
+  useEffect(() => {
+    const promise = axios.get(`http://localhost:5000/jrpg`, config);
+    promise.then((response) => {
+      setJrpg(response.data);
+      console.log("rpg deu certo");
+    });
+    promise.catch((error) => {
+      console.log(error);
+      console.log("rpg deu errado");
     });
   }, []);
 
@@ -46,7 +81,16 @@ export default function Home() {
             }
           })}
         </Cards>
+        <h4 className="rpgs">J-RPG Games</h4>
+        <Jrpgs>
+          {jrpg.map((jrpgs, i) => {
+            while (i < 10) {
+              return <img src={jrpgs.pictureUrl} />;
+            }
+          })}
+        </Jrpgs>
       </Div>
+
       <Footer />
     </>
   );

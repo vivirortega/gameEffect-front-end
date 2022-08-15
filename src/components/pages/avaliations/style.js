@@ -12,10 +12,13 @@ const Background = styled.div`
   //white-space: pre-line;
   overflow: hidden;
   overflow-y: scroll;
+  @media (min-width: 900px) {
+    width: 450px;
+    height: 130px;
+  }
 
   .user-info {
     margin-top: 5px;
-
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,18 +30,31 @@ const Background = styled.div`
     width: 35px;
     height: 35px;
     border-radius: 100px;
+    @media (min-width: 900px) {
+      width: 50px;
+      height: 50px;
+    }
   }
 
   h2 {
     margin-top: 10px;
     white-space: pre-line;
     margin-left: 10px;
+    @media (min-width: 900px) {
+      font-size: 20px;
+      margin-top: 10px;
+      margin-left: 15px;
+    }
   }
 
   .user {
     font-weight: 400;
     font-family: "Oswald";
     font-size: 20px;
+
+    @media (min-width: 900px) {
+      font-size: 25px;
+    }
   }
 `;
 
@@ -54,6 +70,10 @@ const AvaliationsPage = styled.div`
     font-size: 30px;
     color: white;
     font-weight: bold;
+
+    @media (min-width: 900px) {
+      font-size: 40px;
+    }
   }
 `;
 
@@ -70,6 +90,11 @@ const Header = styled.div`
     height: 50px;
     margin-left: 30px;
     margin-top: 30px;
+
+    @media (min-width: 900px) {
+      width: 50px;
+      height: 45px;
+    }
   }
 `;
 
@@ -91,14 +116,18 @@ const Review = styled.div`
     color: #f2f536;
     width: 20px;
     height: 20px;
-  
+    @media (min-width: 900px) {
+      width: 30px;
+      height: 25px;
+    }
   }
 
   .review {
     font-size: 20px;
+    @media (min-width: 900px) {
+      font-size: 25px;
+    }
   }
 `;
-
-
 
 export { Background, AvaliationsPage, Header, Gap, Review };

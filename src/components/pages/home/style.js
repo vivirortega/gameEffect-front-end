@@ -5,14 +5,42 @@ const Div = styled.div`
   align-items: flex-start;
   flex-direction: column;
   gap: 5px;
+  overflow-x: hidden;
+  overflow-y: hidden;
 
   h1 {
     margin-top: 70px;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     color: white;
-    margin-left: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    @media (min-width: 900px) {
+      margin-left: calc(10px + 30px);
+      margin-top: 50px;
+      margin-bottom: 15px;
+    }
+  }
+
+  h4 {
+    font-size: 40px;
+    margin-left: calc(10px + 30px);
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    margin-left: calc(10px + 30px);
+    font-family: "poppins";
+    margin-top: 10px;
+  }
+
+  .rpgs {
+    margin-left: 20px;
+    font-size: 25px;
+
+    @media (min-width: 900px) {
+      font-size: 25px;
+      margin-left: calc(10px + 30px);
+    }
   }
 `;
 
@@ -28,19 +56,19 @@ const Background = styled.div`
     rgba(113, 220, 215, 1) 75%
   );
   width: 198.23px;
-  height: 100%;
+  height: 270px;
   border-radius: 20px;
-  position: relative;
   text-decoration: none;
+  position: relative;
 
   .link {
     text-decoration: none;
   }
   img {
-    width: 160px;
-    height: 200px;
     border-radius: 10px;
     margin-top: 10px;
+    width: 160px;
+    height: 200px;
   }
 
   h2 {
@@ -66,14 +94,51 @@ const Cards = styled.div`
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-  gap: 30px;
   width: 100%;
   height: 100%;
+  gap: 15px;
+  margin-left: 20px;
   flex-direction: row;
+  @media (min-width: 900px) {
+    margin-left: 30px;
+  }
 
   a {
     text-decoration: none;
   }
 `;
 
-export { Div, Background, Cards };
+const Jrpgs = styled.div`
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 15px;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  margin-left: 20px;
+  @media (min-width: 900px) {
+    width: 50%;
+    margin-left: 30px;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 30px;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 160px;
+    height: 200px;
+  }
+`;
+
+export { Div, Background, Cards, Jrpgs };

@@ -8,6 +8,12 @@ const Form = styled.form`
   gap: 20px;
   height: 100vh;
 
+  @media (max-width: 700px) {
+    border-radius: 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
   input {
     width: 300px;
     height: 55px;
@@ -20,6 +26,10 @@ const Form = styled.form`
     text-align: center;
     font-size: 20px;
     //font-weight: bold;
+    @media (min-width: 900px) {
+      width: 500px;
+      height: 65px;
+    }
   }
 
   button {
@@ -33,13 +43,17 @@ const Form = styled.form`
     color: white;
     font-size: 30px;
     font-weight: bold;
+
+    @media (min-width: 900px) {
+      height: 70px;
+      font-size: 40px;
+    }
   }
 
   .loading {
     display: flex;
     //align-items: center;
     justify-content: center;
-    
   }
 `;
 
@@ -51,6 +65,10 @@ const Title = styled.h1`
   background: -webkit-linear-gradient(#9ad9f2, #ab69ac);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (min-width: 900px) {
+    font-size: 60px;
+  }
 `;
 
 const StyledLink = styled.h1`

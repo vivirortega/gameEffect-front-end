@@ -21,6 +21,11 @@ const Form = styled.form`
     text-align: center;
     font-size: 20px;
     //font-weight: bold;
+
+    @media (min-width: 900px) {
+      width: 380px;
+    height: 70px;
+    }
   }
 
   button {
@@ -55,6 +60,10 @@ const Title = styled.h1`
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
+  @media (min-width: 900px) {
+      font-size: 35px;
+    }
+  
 `;
 
 const Background = styled.div`

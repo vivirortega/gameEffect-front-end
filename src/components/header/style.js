@@ -21,12 +21,21 @@ const Div = styled.div`
     height: 55px;
     border-radius: 100%;
     margin-right: 30px;
+
+    @media (min-width: 900px) {
+      width: 70px;
+      height: 65px;
+    }
   }
 
   .react-icon {
     color: white;
     width: 40px;
     height: 28px;
+
+    @media (min-width: 900px) {
+      height: 40px;
+    }
   }
 `;
 

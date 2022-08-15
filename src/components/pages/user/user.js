@@ -14,8 +14,9 @@ export default function User() {
   const [favorite, setIsFavorite] = useState([]);
   const [recent, setRecent] = useState([]);
   const [newBio, setNewBio] = useState("");
+  const [jrpg, setJrpg] = useState("");
+  const [action, setAction] = useState("");
   const [newImage, setNewImage] = useState("");
-  //const [bio, setBio] = useState("");
   const [loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
   const { id } = useParams();
@@ -65,7 +66,17 @@ export default function User() {
     const promise = axios.get(`http://localhost:5000/${userId}/recent`, config);
     promise.then((response) => {
       setRecent(response.data);
-      console.log(favorite);
+    });
+    promise.catch((error) => {
+      console.log(error);
+    });
+  }, []);
+
+
+  useEffect(() => {
+    const promise = axios.get(`http://localhost:5000/jrpg`, config);
+    promise.then((response) => {
+      setRecent(response.data);
     });
     promise.catch((error) => {
       console.log(error);

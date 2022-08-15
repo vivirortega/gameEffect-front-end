@@ -76,14 +76,11 @@ export default function Game() {
       config
     );
     promise.then((response) => {
-      console.log("deu certo");
 
-      //localStorage.setItem("token", response.data.token);
     });
     promise.catch((error) => {
       alert("Confira os dados e tente novamente");
       console.log(error);
-      console.log(avaliation);
       setReview("");
     });
     promise.finally(() => {
@@ -113,7 +110,7 @@ export default function Game() {
           <Blue>
             <h1>{game.name}</h1>
             <h2>{game.genre}</h2>
-            <h3>{game.releaseDate}</h3>
+            <h3 className="date">{game.releaseDate}</h3>
             <h4>{game.description}</h4>
             <Ratings>
               <Rate>
@@ -135,7 +132,7 @@ export default function Game() {
               <Form onSubmit={insertAvaliation}>
                 <span>Rate</span>
                 <Icons>
-                  <Star onChange={(e) => setAvaliation(e.target.value)} />
+                  <Star className="avaliation" onChange={(e) => setAvaliation(e.target.value)} />
                   <Heart value={heartit}/>
                 </Icons>
                 <input
