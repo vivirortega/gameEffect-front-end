@@ -26,7 +26,7 @@ export default function Login() {
       setBio(response.data.userinfo.bio);
       setUserId(response.data.userinfo.id);
       localStorage.setItem("token", response.data.token);
-      navigate("/");
+      navigate("/home");
       setLogin("");
       setPassword("");
     });
