@@ -12,7 +12,7 @@ export default function Signup() {
   const [bio, setBio] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const URL = `http://localhost:5000`;
+  const URL = `https://gameeffects.herokuapp.com`;
 
   function createUser(event) {
     event.preventDefault();

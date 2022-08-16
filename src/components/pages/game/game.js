@@ -36,7 +36,7 @@ export default function Game() {
     },
   };
   setGameId(game.id);
-  const URL = `http://localhost:5000`;
+  const URL = `https://gameeffects.herokuapp.com`;
 
   useEffect(() => {
     const promise = axios.get(`${URL}/game/${id}`, config);

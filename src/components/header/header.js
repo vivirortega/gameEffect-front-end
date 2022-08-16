@@ -15,7 +15,7 @@ export default function Header() {
   const [name, setName] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const URL = `http://localhost:5000`;
+  const URL = `https://gameeffects.herokuapp.com`;
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
