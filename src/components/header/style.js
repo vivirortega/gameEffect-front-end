@@ -84,6 +84,7 @@ const Form = styled.form`
   position: fixed;
   top: 40px;
   right: 130px;
+  width: 200px;
 
   input {
     font-size: 16px;

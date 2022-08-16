@@ -21,7 +21,7 @@ export default function Signup() {
     const data = { email, password, username, icon, bio };
     const promise = axios.post(`${URL}`, data);
     promise.then((response) => {
-      navigate("/login");
+      navigate("/");
       console.log("deu certo");
       setEmail("");
       setPassword("");
