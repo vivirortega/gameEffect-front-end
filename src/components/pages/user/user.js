@@ -25,7 +25,7 @@ export default function User() {
   };
 
   useEffect(() => {
-    const promise = axios.get(`http://localhost:5000/game/${id}`, config);
+    const promise = axios.get(`https://gameeffects.herokuapp.com/game/${id}`, config);
     promise.then((response) => {});
     promise.catch((error) => {
       console.log(error);
@@ -33,7 +33,7 @@ export default function User() {
   }, []);
 
   useEffect(() => {
-    const promise = axios.get(`http://localhost:5000/${userId}`, config);
+    const promise = axios.get(`https://gameeffects.herokuapp.com/${userId}`, config);
     promise.then((response) => {
       setIsFavorite(response.data);
     });
@@ -47,7 +47,7 @@ export default function User() {
     setLoading(true);
 
     const data = { bio: newBio, icon: newImage };
-    const promise = axios.put(`http://localhost:5000/user/${id}`, data, config);
+    const promise = axios.put(`https://gameeffects.herokuapp.com/user/${id}`, data, config);
     promise.then((response) => {
       setLoading(false);
       setHide(false);
@@ -61,7 +61,7 @@ export default function User() {
   }
 
   useEffect(() => {
-    const promise = axios.get(`http://localhost:5000/${userId}/recent`, config);
+    const promise = axios.get(`https://gameeffects.herokuapp.com/${userId}/recent`, config);
     promise.then((response) => {
       setRecent(response.data);
     });
