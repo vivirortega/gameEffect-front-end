@@ -94,7 +94,7 @@ export default function Game() {
     <>
       <Background>
         <div className="header">
-          <Link to="/">
+          <Link to="/home">
             <HiChevronLeft className="return" />
           </Link>
           <div>
