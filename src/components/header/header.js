@@ -27,7 +27,7 @@ export default function Header() {
     console.log("cliquei");
 
     const promise = axios.get(
-      `http://localhost:5000/game?name=${name}`,
+      `https://gameeffects.herokuapp.com/game?name=${name}`,
       config
     );
     promise.then((response) => {

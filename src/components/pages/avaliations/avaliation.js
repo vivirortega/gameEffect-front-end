@@ -23,7 +23,7 @@ export default function Avaliations() {
 
   function renderAvaliations() {
     const promise = axios.get(
-      `http://localhost:5000/game/${id}/avaliations`,
+      `https://gameeffects.herokuapp.com/game/${id}/avaliations`,
       config
     );
     promise.then((response) => {

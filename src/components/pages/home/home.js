@@ -18,7 +18,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const promise = axios.get(`https://game-effect-front-end.vercel.app/`, config);
+    const promise = axios.get(`https://gameeffects.herokuapp.com`, config);
     promise.then((response) => {
       setGame(response.data);
     });
@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const promise = axios.get(`https://game-effect-front-end.vercel.app/${userId}/recent`, config);
+    const promise = axios.get(`https://gameeffects.herokuapp.com/${userId}/recent`, config);
     promise.then((response) => {
       setRecent(response.data);
     });
@@ -39,7 +39,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    const promise = axios.get(`https://game-effect-front-end.vercel.app/jrpg`, config);
+    const promise = axios.get(`https://gameeffects.herokuapp.com/jrpg`, config);
     promise.then((response) => {
       setJrpg(response.data);
       console.log("rpg deu certo");

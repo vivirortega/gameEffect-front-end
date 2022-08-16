@@ -25,7 +25,7 @@ export default function CreateGame() {
     setLoading(true);
 
     const data = { name, genre, releaseDate, description, pictureUrl };
-    const promise = axios.post("http://localhost:5000/game", data, config);
+    const promise = axios.post("https://gameeffects.herokuapp.com/game", data, config);
     promise.then((response) => {
       console.log("deu certo");
       setLoading(false);
