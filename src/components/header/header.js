@@ -28,7 +28,6 @@ export default function Header() {
 
   function renderSearchings(event) {
     event.preventDefault();
-    console.log("cliquei");
 
     const promise = axios.get(`${URL}/game?name=${name}`, config);
     promise.then((response) => {
@@ -43,7 +42,7 @@ export default function Header() {
   function logoff() {
     localStorage.removeItem("token");
     setToken(null);
-    navigate("/login");
+    navigate("/home");
   }
 
   return (
