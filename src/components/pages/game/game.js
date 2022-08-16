@@ -36,9 +36,10 @@ export default function Game() {
     },
   };
   setGameId(game.id);
+  const URL = `http://localhost:5000`;
 
   useEffect(() => {
-    const promise = axios.get(`https://gameeffects.herokuapp.com/game/${id}`, config);
+    const promise = axios.get(`${URL}/game/${id}`, config);
     promise.then((response) => {
       setGame(response.data);
     });
@@ -48,7 +49,7 @@ export default function Game() {
   }, []);
 
   useEffect(() => {
-    const promise = axios.get(`https://gameeffects.herokuapp.com/game/${id}/rate`, config);
+    const promise = axios.get(`${URL}/game/${id}/rate`, config);
     promise.then((response) => {
       setRate(response.data);
     });
@@ -71,7 +72,7 @@ export default function Game() {
     setLoading(true);
 
     const promise = axios.post(
-      `https://gameeffects.herokuapp.com/game/${id}/avaliation`,
+      `${URL}/game/${id}/avaliation`,
       newAvaliation,
       config
     );

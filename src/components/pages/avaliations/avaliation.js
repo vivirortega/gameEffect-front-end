@@ -11,6 +11,7 @@ export default function Avaliations() {
   const [avaliations, setAvaliations] = useState([]);
   const { id } = useParams();
   const { token, image, username, userId } = useContext(UserContext);
+  const URL = `http://localhost:5000`;
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -23,7 +24,7 @@ export default function Avaliations() {
 
   function renderAvaliations() {
     const promise = axios.get(
-      `https://gameeffects.herokuapp.com/game/${id}/avaliations`,
+      `${URL}/game/${id}/avaliations`,
       config
     );
     promise.then((response) => {

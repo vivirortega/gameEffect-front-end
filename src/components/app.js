@@ -7,7 +7,7 @@ import Home from ".//pages/home/home";
 import User from "./pages/user/user";
 import Game from "./pages/game/game";
 import CreateGame from "./pages/createGame/createGame";
-import Avaliations from "./pages/avaliations/avaliation";
+import Avaliations from "./pages/avaliations/avaliation";  
 
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));

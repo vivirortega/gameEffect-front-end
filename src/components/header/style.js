@@ -3,10 +3,10 @@ import styled from "styled-components";
 const Div = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 5px;
   margin-top: 30px;
   z-index: 1;
+  justify-content: space-between;
 
   input {
     border: none;
@@ -26,6 +26,41 @@ const Div = styled.div`
       width: 70px;
       height: 65px;
     }
+  }
+
+  .logout {
+    color: white;
+    width: 30px;
+    height: 30px;
+    //position: fixed;
+  }
+
+  .lupe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .up {
+    margin-left: 30px;
+    color: white;
+    width: 30px;
+    height: 30px;
+  }
+
+  .button-logout {
+    margin-left: 30px;
+    border: none;
+    width: 70px;
+    height: 35px;
+    border-radius: 10%;
   }
 
   .react-icon {

@@ -3,15 +3,19 @@ import { FaSearch } from "react-icons/fa";
 import UserContext from "../../contexts/usercontext";
 import { Link } from "react-router-dom";
 import { BiChevronUpSquare } from "react-icons/bi";
+import { BiChevronDownSquare } from "react-icons/bi";
 import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Header() {
-  const { image, userId, token } = useContext(UserContext);
+  const { image, userId, token, setToken } = useContext(UserContext);
   const [search, setSearch] = useState(false);
   const [searchings, setSearchings] = useState([]);
   const [name, setName] = useState("");
-  console.log(name);
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const URL = `http://localhost:5000`;
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -26,10 +30,7 @@ export default function Header() {
     event.preventDefault();
     console.log("cliquei");
 
-    const promise = axios.get(
-      `https://gameeffects.herokuapp.com/game?name=${name}`,
-      config
-    );
+    const promise = axios.get(`${URL}/game?name=${name}`, config);
     promise.then((response) => {
       setSearchings(response.data);
       console.log(response);
@@ -39,9 +40,25 @@ export default function Header() {
     });
   }
 
+  function logoff() {
+    localStorage.removeItem("token");
+    setToken(null);
+    navigate("/login");
+  }
+
   return (
     <Div>
-      <BiChevronUpSquare/>
+      {isOpen === true ? (
+        <div className="down">
+          <BiChevronDownSquare className="logout" />
+          <button className="button-logout" onClick={logoff}>
+            LogOut
+          </button>
+        </div>
+      ) : (
+        <BiChevronUpSquare className="up" onClick={() => setIsOpen(true)} />
+      )}
+
       {search === true ? (
         <Form onChange={renderSearchings}>
           <input
@@ -63,10 +80,12 @@ export default function Header() {
       ) : (
         <></>
       )}
-      <FaSearch className="react-icon" onClick={searching} />
-      <Link to={`/user/${userId}`}>
-        <img src={image} alt="icone"></img>
-      </Link>
+      <div className="lupe">
+        <FaSearch className="react-icon" onClick={searching} />
+        <Link to={`/user/${userId}`}>
+          <img src={image} alt="icone"></img>
+        </Link>
+      </div>
     </Div>
   );
 }

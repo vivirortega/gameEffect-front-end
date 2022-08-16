@@ -11,6 +11,7 @@ export default function Home() {
   const [jrpg, setJrpg] = useState([]);;
   const [recent, setRecent] = useState([]);
   const { token, userId } = useContext(UserContext);
+  const URL = `http://localhost:5000`;
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -18,7 +19,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const promise = axios.get(`https://gameeffects.herokuapp.com`, config);
+    const promise = axios.get(`${URL}`, config);
     promise.then((response) => {
       setGame(response.data);
     });
@@ -28,7 +29,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const promise = axios.get(`https://gameeffects.herokuapp.com/${userId}/recent`, config);
+    const promise = axios.get(`${URL}/${userId}/recent`, config);
     promise.then((response) => {
       setRecent(response.data);
     });
@@ -39,7 +40,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    const promise = axios.get(`https://gameeffects.herokuapp.com/jrpg`, config);
+    const promise = axios.get(`${URL}/jrpg`, config);
     promise.then((response) => {
       setJrpg(response.data);
       console.log("rpg deu certo");

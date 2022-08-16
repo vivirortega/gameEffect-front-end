@@ -11,13 +11,14 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const { setToken, setImage, setUsername, setBio, setUserId } = useContext(UserContext);
   const navigate = useNavigate();
+  const URL = `http://localhost:5000`;
 
   function createUser(event) {
     event.preventDefault();
     setLoading(true);
 
     const data = { login, password };
-    const promise = axios.post("https://gameeffects.herokuapp.com/login", data);
+    const promise = axios.post(`${URL}/login`, data);
     promise.then((response) => {
       setToken(response.data.token);
       setImage(response.data.userinfo.icon);
