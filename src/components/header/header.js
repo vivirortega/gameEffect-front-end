@@ -42,7 +42,7 @@ export default function Header() {
   function logoff() {
     localStorage.removeItem("token");
     setToken(null);
-    navigate("/home");
+    navigate("/");
   }
 
   return (
