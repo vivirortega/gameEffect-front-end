@@ -19,7 +19,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const promise = axios.get(`${URL}`, config);
+    const promise = axios.get(`${URL}/recent`, config);
     promise.then((response) => {
       setGame(response.data);
     });

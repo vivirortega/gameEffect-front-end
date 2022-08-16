@@ -18,7 +18,7 @@ export default function Login() {
     setLoading(true);
 
     const data = { login, password };
-    const promise = axios.post(`${URL}/login`, data);
+    const promise = axios.post(`${URL}`, data);
     promise.then((response) => {
       setToken(response.data.token);
       setImage(response.data.userinfo.icon);

@@ -42,8 +42,8 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/signup" element={<Signup />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="/home" element={<Home />}></Route>
           <Route path="/game" element={<CreateGame />}></Route>
           <Route path="/game/:id" element={<Game />}></Route>
           <Route path="/game/:id/avaliations" element={<Avaliations />}></Route>
