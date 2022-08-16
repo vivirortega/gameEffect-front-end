@@ -17,7 +17,7 @@ export default function Login() {
     setLoading(true);
 
     const data = { login, password };
-    const promise = axios.post("https://gameeffects.herokuapp.com/login", data);
+    const promise = axios.post("https://game-effect-front-end.vercel.app/login", data);
     promise.then((response) => {
       setToken(response.data.token);
       setImage(response.data.userinfo.icon);

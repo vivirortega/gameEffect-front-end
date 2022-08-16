@@ -2,6 +2,7 @@ import { Div, Form } from "./style";
 import { FaSearch } from "react-icons/fa";
 import UserContext from "../../contexts/usercontext";
 import { Link } from "react-router-dom";
+import { BiChevronUpSquare } from "react-icons/bi";
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
@@ -40,6 +41,7 @@ export default function Header() {
 
   return (
     <Div>
+      <BiChevronUpSquare/>
       {search === true ? (
         <Form onChange={renderSearchings}>
           <input
