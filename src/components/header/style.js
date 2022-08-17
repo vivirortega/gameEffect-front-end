@@ -17,14 +17,14 @@ const Div = styled.div`
   }
 
   img {
-    width: 55px;
-    height: 55px;
+    width: 40px;
+    height: 45px;
     border-radius: 100%;
     margin-right: 30px;
 
     @media (min-width: 900px) {
-      width: 70px;
-      height: 65px;
+      width: 60px;
+      height: 55px;
     }
   }
 
@@ -39,6 +39,11 @@ const Div = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 900px) {
+      gap: 10px
+    }
+
   }
 
   .down {

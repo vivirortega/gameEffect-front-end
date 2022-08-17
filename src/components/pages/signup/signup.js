@@ -94,7 +94,7 @@ export default function Signup() {
         </button>
         <StyledLink>
           Already have an account?{" "}
-          <Link to="/login">
+          <Link to="/">
             <span>Sign In</span>{" "}
           </Link>
         </StyledLink>
