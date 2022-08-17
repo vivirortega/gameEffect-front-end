@@ -18,7 +18,7 @@ export default function User() {
   const [loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
   const { id } = useParams();
-  const URL = `http://localhost:5000`;
+  const URL = `https://gameeffects.herokuapp.com`;
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
