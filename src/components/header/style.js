@@ -65,8 +65,8 @@ const Div = styled.div`
 
   .react-icon {
     color: white;
-    width: 40px;
     height: 28px;
+    width: 30px;
 
     @media (min-width: 900px) {
       height: 40px;
@@ -83,7 +83,7 @@ const Form = styled.form`
   gap: 15px;
   position: fixed;
   top: 40px;
-  right: 130px;
+  right: 120px;
   width: 200px;
 
   input {
