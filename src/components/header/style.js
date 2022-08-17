@@ -17,7 +17,7 @@ const Div = styled.div`
   }
 
   img {
-    width: 40px;
+    width: 45px;
     height: 45px;
     border-radius: 100%;
     margin-right: 30px;
@@ -39,9 +39,10 @@ const Div = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 
     @media (min-width: 900px) {
-      gap: 10px
+      gap: 10px;
     }
 
   }
@@ -70,11 +71,12 @@ const Div = styled.div`
 
   .react-icon {
     color: white;
-    height: 28px;
-    width: 30px;
+    width: 25px;
+    height: 25px;
 
     @media (min-width: 900px) {
-      height: 40px;
+      height: 30px;
+      width: 30px;
     }
   }
 `;

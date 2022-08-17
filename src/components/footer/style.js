@@ -5,6 +5,7 @@ const Background = styled.footer`
   bottom: 0;
   position: fixed;
   margin-bottom: 30px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;

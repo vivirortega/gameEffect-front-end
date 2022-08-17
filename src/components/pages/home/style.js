@@ -9,12 +9,12 @@ const Div = styled.div`
   overflow-y: hidden;
 
   h1 {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     color: white;
     margin-bottom: 20px;
     margin-left: 20px;
-    margin-top: 0px;
+    margin-top: 20px;
     @media (min-width: 900px) {
       margin-left: calc(10px + 30px);
       font-size: 35px;
