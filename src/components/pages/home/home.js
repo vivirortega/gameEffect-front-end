@@ -11,7 +11,7 @@ export default function Home() {
   const [jrpg, setJrpg] = useState([]);;
   const [recent, setRecent] = useState([]);
   const { token, userId } = useContext(UserContext);
-  const URL = `http://localhost:5000`;
+  const URL = `https://gameeffects.herokuapp.com`;
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,

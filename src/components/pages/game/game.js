@@ -24,6 +24,7 @@ export default function Game() {
   const { token, image, userId, avaliation, setAvaliation, heartit, setGameId } =
     useContext(UserContext);
   const [game, setGame] = useState({});
+  const [gamelist, setGamelist] = useState(false);
   const [newReview, setNewReview] = useState(false);
   const [review, setReview] = useState("");
   const [loading, setLoading] = useState(false);
@@ -36,7 +37,7 @@ export default function Game() {
     },
   };
   setGameId(game.id);
-  const URL = `http://localhost:5000`;
+  const URL = `https://gameeffects.herokuapp.com`;
 
   useEffect(() => {
     const promise = axios.get(`${URL}/game/${id}`, config);
@@ -65,6 +66,33 @@ export default function Game() {
   function toAvaliationPost() {
     setNewReview(true);
   }
+
+  function saveGamelist(event){
+    setGamelist(true);
+    event.preventDefault();
+
+    const response = { gamelist: gamelist };
+  
+    const promise = axios.post(
+      `${URL}/game/${id}/gamelist`,
+      response,
+      config
+    );
+    promise.then((response) => {
+      console.log("gamelist deu certo")
+      console.log(response)
+    });
+    promise.catch((error) => {
+      alert("Confira os dados e tente novamente");
+      console.log(error);
+    
+    });
+    promise.finally(() => {
+      setLoading(false);
+      setNewReview(false);
+    });
+  }
+
 
   function insertAvaliation(event) {
     const newAvaliation = { review: review, rate: avaliation, isFavorite: heartit };
@@ -99,7 +127,7 @@ export default function Game() {
           </Link>
           <div>
             <div className="icon">
-            <HiBookmark className="save" />
+            <HiBookmark className="save" onClick={saveGamelist} />
             <Link to={`/user/${userId}`}>
               <img src={image}></img>
             </Link>
