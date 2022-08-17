@@ -43,11 +43,10 @@ export default function Home() {
     const promise = axios.get(`${URL}/jrpg`, config);
     promise.then((response) => {
       setJrpg(response.data);
-      console.log("rpg deu certo");
+  
     });
     promise.catch((error) => {
       console.log(error);
-      console.log("rpg deu errado");
     });
   }, []);
 

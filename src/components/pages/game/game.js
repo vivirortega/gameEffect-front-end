@@ -169,7 +169,7 @@ export default function Game() {
                 <input
                   required
                   value={review}
-                  placeholder="review"
+                  placeholder="write your review"
                   onChange={(e) => setReview(e.target.value)}
                 ></input>
                 <Buttons>

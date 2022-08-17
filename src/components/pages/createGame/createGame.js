@@ -37,7 +37,7 @@ export default function CreateGame() {
       setPictureUrl("");
     });
     promise.catch((error) => {
-      alert("Confira os dados e tente novamente");
+      alert("Jogo já cadastrado no nosso banco de dados");
       setLoading(false);
     });
   }

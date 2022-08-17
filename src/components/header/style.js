@@ -66,6 +66,9 @@ const Div = styled.div`
     width: 70px;
     height: 35px;
     border-radius: 10%;
+    background-color: #633e80;
+    font-weight: bold;
+    color: white;
   }
 
   .react-icon {

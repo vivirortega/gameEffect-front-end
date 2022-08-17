@@ -4,7 +4,7 @@ import UserContext from "../../contexts/usercontext";
 import { Link } from "react-router-dom";
 import { BiChevronUpSquare } from "react-icons/bi";
 import { BiChevronDownSquare } from "react-icons/bi";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -51,7 +51,7 @@ export default function Header() {
         <div className="down">
           <BiChevronDownSquare className="logout" />
           <button className="button-logout" onClick={logoff}>
-            LogOut
+            Logout
           </button>
         </div>
       ) : (

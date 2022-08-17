@@ -25,11 +25,20 @@ const Form = styled.form`
     align-items: center;
     text-align: center;
     font-size: 20px;
-    //font-weight: bold;
+
+    ::placeholder {
+      color: black;
+    }
+  
     @media (min-width: 900px) {
       width: 500px;
       height: 65px;
     }
+  }
+
+  img {
+    width: 75px;
+    height: 75px;
   }
 
   button {

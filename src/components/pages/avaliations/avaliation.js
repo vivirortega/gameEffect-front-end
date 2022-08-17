@@ -10,7 +10,7 @@ import { FaStar } from "react-icons/fa";
 export default function Avaliations() {
   const [avaliations, setAvaliations] = useState([]);
   const { id } = useParams();
-  const { token, image, username, userId } = useContext(UserContext);
+  const { token } = useContext(UserContext);
   const URL = `https://gameeffects.herokuapp.com`;
   const config = {
     headers: {

@@ -41,6 +41,7 @@ export default function Login() {
   return (
     <>
       <Form onSubmit={createUser}>
+        <img src="https://media.discordapp.net/attachments/908466620643549235/1009330359420325939/controller.png" className="logo"/>
         <Title>GameEffect</Title>
         <input
           type="text"

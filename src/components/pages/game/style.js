@@ -220,7 +220,11 @@ const Form = styled.form`
     border-radius: 100px;
     text-align: center;
     font-family: "Poppins";
-    font-size: 20px;
+    font-size: 18px;
+
+    ::placeholder {
+      color: black;
+    }
 
     @media (min-width: 900px) {
       width: 340px;

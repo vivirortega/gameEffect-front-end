@@ -96,6 +96,7 @@ const Edit = styled.button`
   font-family: "Poppins";
   text-align: center;
   justify-content: center;
+  color: black;
 `;
 
 const Form = styled.form`
@@ -115,6 +116,10 @@ const Form = styled.form`
     text-align: center;
     border: none;
     width: 200px;
+
+    ::placeholder {
+      color: black;
+    }
   }
 
   button {
