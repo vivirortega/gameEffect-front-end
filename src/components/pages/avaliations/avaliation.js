@@ -11,7 +11,7 @@ export default function Avaliations() {
   const [avaliations, setAvaliations] = useState([]);
   const { id } = useParams();
   const { token, image, username, userId } = useContext(UserContext);
-  const URL = `https://gameeffects.herokuapp.com`;
+  const URL = `http://localhost:5000`;
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,

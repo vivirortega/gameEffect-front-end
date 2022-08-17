@@ -44,7 +44,6 @@ const Div = styled.div`
     @media (min-width: 900px) {
       gap: 10px;
     }
-
   }
 
   .down {
@@ -92,6 +91,10 @@ const Form = styled.form`
   top: 40px;
   right: 120px;
   width: 200px;
+  @media (min-width: 900px) {
+    right: 200px; 
+    width: 650px;
+  }
 
   input {
     font-size: 16px;

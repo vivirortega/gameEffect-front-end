@@ -11,7 +11,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const { setToken, setImage, setUsername, setBio, setUserId } = useContext(UserContext);
   const navigate = useNavigate();
-  const URL = `https://gameeffects.herokuapp.com`;
+  const URL = `http://localhost:5000`;
 
   function createUser(event) {
     event.preventDefault();

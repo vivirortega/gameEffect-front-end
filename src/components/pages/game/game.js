@@ -36,7 +36,7 @@ export default function Game() {
     },
   };
   setGameId(game.id);
-  const URL = `https://gameeffects.herokuapp.com`;
+  const URL = `http://localhost:5000`;
 
   useEffect(() => {
     const promise = axios.get(`${URL}/game/${id}`, config);
@@ -98,10 +98,12 @@ export default function Game() {
             <HiChevronLeft className="return" />
           </Link>
           <div>
+            <div className="icon">
             <HiBookmark className="save" />
             <Link to={`/user/${userId}`}>
               <img src={image}></img>
             </Link>
+            </div>
           </div>
         </div>
         <>

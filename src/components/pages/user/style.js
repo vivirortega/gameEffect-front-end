@@ -114,7 +114,7 @@ const Form = styled.form`
     background-color: #9aa9d8;
     text-align: center;
     border: none;
-    width: 240px;
+    width: 200px;
   }
 
   button {
@@ -143,6 +143,7 @@ const RecentActivities = styled.div`
   width: 100%;
   padding-right: 30px;
   gap: 20px;
+
   @media (min-width: 900px) {
     display: flex;
     align-items: center;
@@ -197,4 +198,16 @@ const RecentActivities = styled.div`
   }
 `;
 
-export { UserPage, Edit, Form, Favorites, RecentActivities };
+const Buttons = styled.div`
+  display: flex;
+  gap: 10px;
+
+  .cancel {
+    background-color: beige;
+    width: 70px;
+    height: 20px;
+    color: black;
+  }
+`;
+
+export { UserPage, Edit, Form, Favorites, RecentActivities, Buttons };

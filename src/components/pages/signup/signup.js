@@ -12,17 +12,16 @@ export default function Signup() {
   const [bio, setBio] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const URL = `https://gameeffects.herokuapp.com`;
+  const URL = `http://localhost:5000`;
 
   function createUser(event) {
     event.preventDefault();
     setLoading(true);
 
     const data = { email, password, username, icon, bio };
-    const promise = axios.post(`${URL}`, data);
+    const promise = axios.post(`${URL}/signup`, data);
     promise.then((response) => {
       navigate("/");
-      console.log("deu certo");
       setEmail("");
       setPassword("");
       setIcon("");

@@ -1,7 +1,7 @@
 import Footer from "../../footer/footer";
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../../../contexts/usercontext";
-import { UserPage, Edit, Form, Favorites, RecentActivities } from "./style";
+import { UserPage, Edit, Form, Favorites, RecentActivities, Buttons } from "./style";
 import { ThreeDots } from "react-loader-spinner";
 import { useParams, Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
@@ -18,7 +18,7 @@ export default function User() {
   const [loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
   const { id } = useParams();
-  const URL = `https://gameeffects.herokuapp.com`;
+  const URL = `http://localhost:5000`;
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -51,6 +51,7 @@ export default function User() {
     const promise = axios.put(`${URL}/user/${id}`, data, config);
     promise.then((response) => {
       setLoading(false);
+      console.log(response)
       setHide(false);
       setEdit(false);
     });
@@ -98,6 +99,7 @@ export default function User() {
               onChange={(e) => setNewBio(e.target.value)}
               placeholder="new bio..."
             ></input>
+            <Buttons>
             <button type="submit" disabled={loading}>
               {loading ? (
                 <div className="loading">
@@ -107,12 +109,14 @@ export default function User() {
                 "Send"
               )}
             </button>
+            <button className="cancel" onClick={() => setEdit(false)}>Cancel</button>
+            </Buttons>
           </Form>
         ) : (
           <></>
         )}
 
-        {hide === true ? <></> : <Edit onClick={editing}>Edit</Edit>}
+        {hide === true && edit === true ? <></> : <Edit onClick={editing}>Edit</Edit>}
         <h3>Favorite Games</h3>
         <Favorites>
           {favorite.map((favorite, i) => {
@@ -124,7 +128,7 @@ export default function User() {
         <h4 className="recent">Recent Activity</h4>
         <RecentActivities className="recent">
           {recent.map((recents, i) => {
-            while (i < 10) {
+            while (i < 5) {
               return (
                 <div className="all">
                   <div className="star-recent">

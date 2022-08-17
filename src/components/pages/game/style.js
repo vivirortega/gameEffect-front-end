@@ -12,25 +12,29 @@ const Background = styled.div`
     margin-top: 30px;
   }
 
+  .icon {
+    display: flex;
+    align-items: center;
+  }
   .return,
   .save {
     color: white;
-    width: 40px;
-    height: 50px;
     margin-left: 30px;
+    width: 40px;
+    height: 35px;
     @media (min-width: 900px) {
-      width: 60px;
-      height: 65px;
+      width: 50px;
+      height: 55px;
     }
   }
   img {
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     border-radius: 100%;
     margin-right: 30px;
     @media (min-width: 900px) {
-      width: 70px;
-      height: 65px;
+      width: 55px;
+      height: 55px;
     }
   }
 `;
@@ -122,7 +126,7 @@ const Blue = styled.div`
   }
 
   .button {
-    margin-top: 5px;
+    margin-top: 10px;
     width: 30px;
     height: 30px;
     color: black;
@@ -253,8 +257,8 @@ const Stars = styled.div`
   display: flex;
   margin-top: 10px;
   gap: 5px;
-  margin-left: 35px;
   align-items: center;
+  margin-left: 20px;
 
   @media (min-width: 900px) {
     gap: 10px;
