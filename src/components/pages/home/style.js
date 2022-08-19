@@ -51,15 +51,16 @@ const Background = styled.div`
   background: rgb(99, 179, 182);
   background: linear-gradient(
     0deg,
-    rgba(99, 179, 182, 1) 35%,
-    rgba(99, 179, 182, 1) 57%,
-    rgba(113, 220, 215, 1) 75%
+    rgba(99, 179, 182, 1) 4%,
+    rgba(106, 186, 190, 1) 41%,
+    rgba(154, 231, 239, 1) 91%
   );
   width: 198.23px;
   height: 270px;
   border-radius: 20px;
   text-decoration: none;
-  position: static;
+  position: relative;
+  justify-content: flex-end;
 
   .link {
     text-decoration: none;
@@ -72,6 +73,8 @@ const Background = styled.div`
     position: relative;
     z-index: 1;
     overflow: auto;
+    position: absolute;
+    top: -20px;
   }
 
   h2 {
@@ -83,25 +86,26 @@ const Background = styled.div`
     font-weight: bold;
     text-align: center;
     font-size: 20px;
+    text-shadow: 0px 4px 4px rgb(24 2 2 / 25%);
   }
 
   h3 {
-    margin-bottom: 5px;
     font-weight: bold;
     color: black;
     text-align: center;
     font-size: 15px;
+    margin-bottom: 10px;
   }
 `;
 const Cards = styled.div`
   display: flex;
   overflow-x: scroll;
-  overflow-y: hidden;
   width: 100%;
   height: 100%;
   gap: 15px;
   margin-left: 20px;
   flex-direction: row;
+  padding: 10px 0;
   @media (min-width: 900px) {
     margin-left: 30px;
   }

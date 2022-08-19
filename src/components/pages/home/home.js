@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const [game, setGame] = useState([]);
-  const [jrpg, setJrpg] = useState([]);;
+  const [jrpg, setJrpg] = useState([]);
   const [recent, setRecent] = useState([]);
   const { token, userId } = useContext(UserContext);
   const URL = `https://gameeffects.herokuapp.com`;
@@ -38,12 +38,10 @@ export default function Home() {
     });
   }, []);
 
-
   useEffect(() => {
     const promise = axios.get(`${URL}/jrpg`, config);
     promise.then((response) => {
       setJrpg(response.data);
-  
     });
     promise.catch((error) => {
       console.log(error);

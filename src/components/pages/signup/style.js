@@ -88,6 +88,7 @@ const StyledLink = styled.h1`
     color: #9aa9d8;
     text-decoration: underline;
   }
+  
 `;
 
 export { Title, StyledLink, Form };

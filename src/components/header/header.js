@@ -32,7 +32,6 @@ export default function Header() {
     const promise = axios.get(`${URL}/game?name=${name}`, config);
     promise.then((response) => {
       setSearchings(response.data);
-      console.log(response);
     });
     promise.catch((error) => {
       console.log(error);

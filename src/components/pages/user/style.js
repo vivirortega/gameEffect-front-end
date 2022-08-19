@@ -76,6 +76,7 @@ const UserPage = styled.div`
     white-space: pre-line;
     word-wrap: break-word;
     font-size: 13px;
+    text-shadow: 0px 4px 4px rgb(24 2 2 / 25%);
   }
 
   .image {
@@ -170,12 +171,11 @@ const RecentActivities = styled.div`
   }
 
   .card {
-    background: rgb(99, 179, 182);
+    background: rgb(171, 105, 172);
     background: linear-gradient(
       0deg,
-      rgba(99, 179, 182, 1) 16%,
-      rgba(99, 179, 182, 1) 48%,
-      rgba(113, 220, 215, 1) 90%
+      rgba(171, 105, 172, 1) 11%,
+      rgba(154, 169, 216, 1) 90%
     );
     border-radius: 20px;
     display: flex;

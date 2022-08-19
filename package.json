@@ -36,5 +36,23 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.0.7"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "babel-plugin-styled-components",
+        {
+          "namespace": "vini-melhor-tutor",
+          "displayName": true,
+          "fileName": false
+        }
+      ]
+    ]
   }
 }
