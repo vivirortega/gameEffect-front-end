@@ -5,7 +5,14 @@
 <div align="center">
   <p> <a href="https://game-effect-front-end.vercel.app">deploy: gameEffect - vercel</a></p>
   </div> 
+  <h2>Project:</h2>
+<p>App to rate games, insert a game into the database, rate, favorite, comment on your favorite and most played games and see other people avaliations.
+</p>
 
+<h2>Overview:</h2>
+<div align="center">
+<img src="https://media.discordapp.net/attachments/908466335158272132/1049356196601147502/Untitled.png?width=946&height=473"/>
+ </div> 
 
 <h2>Technologies:</h2>
 <div align="center">
